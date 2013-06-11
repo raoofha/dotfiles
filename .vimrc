@@ -73,7 +73,6 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-call pathogen#infect()
 
 au FileType python set omnifunc=pythoncomplete#Complete
 set completeopt=menuone,longest,preview
@@ -106,7 +105,7 @@ set autoindent " always set autoindenting on
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map :Q :q<CR>
-
+map <F7> gg=G''
 
 set term=xterm-256color
 colorscheme molokai
@@ -149,4 +148,4 @@ Bundle 'altercation/vim-colors-solarized'
 
 filetype plugin indent on     " required!
 
-"
+
