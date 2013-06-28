@@ -109,7 +109,7 @@ map :Q :q<CR>
 
 
 set term=xterm-256color
-colorscheme molokai
+colorscheme wombat256
 if has("gui_running")
   if has("gui_gtk2")
     set guifont=Inconsolata\ 12
@@ -133,20 +133,18 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
-Bundle "mattn/zencoding-vim"
+"Bundle "mattn/zencoding-vim"
 Bundle "scrooloose/syntastic"
-Bundle 'wincent/Command-T'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'majutsushi/tagbar'
-Bundle 'davidhalter/jedi-vim'
+"Bundle 'wincent/Command-T'
+"Bundle 'tpope/vim-surround'
+"Bundle 'tpope/vim-fugitive'
+"Bundle 'majutsushi/tagbar'
+"Bundle 'davidhalter/jedi-vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'klen/python-mode'
-Bundle 'jaxbot/brolink.vim'
-Bundle 'altercation/vim-colors-solarized'
+"Bundle 'klen/python-mode'
 "Bundle 'msanders/snipmate.vim'
 
 
 filetype plugin indent on     " required!
 
-"
+
