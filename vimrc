@@ -99,17 +99,20 @@ set nowrap
 set clipboard=unnamedplus
 set hidden
 set autoindent		" always set autoindenting on
-set backupdir=~/.tmp
-set directory=~/.tmp " Don't clutter my dirs up with swp and tmp files
+set backupdir=/tmp
+set directory=/tmp " Don't clutter my dirs up with swp and tmp files
 set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 set autoindent " always set autoindenting on
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map :Q :q<CR>
 
-
-set term=xterm-256color
-colorscheme wombat256
+set t_Co=256
+"set term=xterm-256color
+if $TERM == 'linux'
+	set term=fbterm
+endif
+colorscheme wombat256i
 if has("gui_running")
   if has("gui_gtk2")
     set guifont=Inconsolata\ 12
@@ -143,8 +146,20 @@ Bundle "scrooloose/syntastic"
 Bundle 'scrooloose/nerdtree'
 "Bundle 'klen/python-mode'
 "Bundle 'msanders/snipmate.vim'
-
+Bundle 'digitaltoad/vim-jade'
+Bundle 'christoomey/vim-tmux-navigator'
 
 filetype plugin indent on     " required!
 
+au BufEnter *
+\if match( getline(1) , '^\#!') == 0 |
+\ execute("let b:interpreter = getline(1)[2:]") |
+\endif
 
+fun! CallInterpreter()
+    if exists("b:interpreter")
+         exec ("!".b:interpreter." %")
+    endif
+endfun
+
+map <F5> :call CallInterpreter()<CR>
