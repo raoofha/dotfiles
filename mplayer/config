@@ -1,0 +1,13 @@
+# Write your default config options here!
+
+#vo=fbdev2,fbdev,
+#vo=xv,x11
+fs=true
+zoom=true
+xy=1280
+msglevel=all=-1
+subcp=cp1256
+subfont-osd-scale=1
+stop-xscreensaver=1
+nolirc=true
+sub-fuzziness=2
