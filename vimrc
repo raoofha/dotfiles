@@ -14,22 +14,16 @@ Bundle 'gmarik/vundle'
 Bundle 'kchmck/vim-coffee-script'
 Bundle "scrooloose/syntastic"
 "Bundle 'wincent/Command-T'
-"Bundle 'tpope/vim-surround'
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'majutsushi/tagbar'
-"Bundle 'davidhalter/jedi-vim'
-Bundle 'scrooloose/nerdtree'
-"Bundle 'klen/python-mode'
-"Bundle 'msanders/snipmate.vim'
+"Bundle 'scrooloose/nerdtree'
 Bundle 'digitaltoad/vim-jade'
-Bundle 'christoomey/vim-tmux-navigator'
-"Bundle 'marijnh/tern_for_vim'
 Bundle 'scrooloose/nerdcommenter'
-"Bundle 'web-indent'
 "Bundle 'git://git.wincent.com/command-t.git'
-"Bundle 'ervandew/supertab'
-
+Bundle 'jayferd/eco.vim'
+"Bundle 'vim-scripts/Flex-4'
+Bundle 'msmorgan/vim-flex'
 filetype plugin indent on     " required!
+
+let g:syntastic_coffee_coffeelint_args = "--csv --file /home/raoof/.coffeescript/coffeelint.json"
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -54,8 +48,8 @@ set backupdir=/tmp
 set directory=/tmp " Don't clutter my dirs up with swp and tmp files
 "set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 
-"set smartindent
-set tabstop=4
+set smartindent
+set tabstop=2
 set shiftwidth=4
 set expandtab
 
@@ -91,8 +85,24 @@ imap <C-s> <esc>:w<CR>
 map <C-q> <esc>:q<CR>
 imap <C-q> <esc>:q<CR>
 map :Q :q<CR>
-map <F9> :NERDTreeToggle<CR>
+map <F9> :Explore<CR>
 
+"map <C-w> <esc>:bd<CR>
+"imap <C-w> <esc>:bd<CR>
+" Tab completion
+" will insert tab at beginning of line,
+" will use completion if not at beginning
+set wildmode=list:longest,list:full
+set complete=.,w,t
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 
 let NERDTreeMapActivateNode='l'
 let NERDTreeMapCloseDir='h'
@@ -105,7 +115,7 @@ if $TERM == 'linux'
 	set term=fbterm
 endif
 colorscheme wombat256i
-
+set mouse=a
 
 
 " Enable omni completion.
@@ -114,4 +124,4 @@ colorscheme wombat256i
 "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 "autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
+"autocmd BufWritePost,FileWritePost *.coffee :silent !coffee -b -c <afile>
