@@ -5,26 +5,33 @@ set nocompatible
 
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
-Bundle 'kchmck/vim-coffee-script'
-Bundle "scrooloose/syntastic"
-"Bundle 'wincent/Command-T'
-"Bundle 'scrooloose/nerdtree'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'scrooloose/nerdcommenter'
-"Bundle 'git://git.wincent.com/command-t.git'
-Bundle 'jayferd/eco.vim'
-"Bundle 'vim-scripts/Flex-4'
-Bundle 'msmorgan/vim-flex'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'nikvdp/ejs-syntax'
+"Plugin 'scrooloose/nerdcommenter'
+"Plugin 'jayferd/eco.vim'
+"Plugin 'briancollins/vim-jst' 
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'KabbAmine/vCoolor.vim'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
 filetype plugin indent on     " required!
 
 let g:syntastic_coffee_coffeelint_args = "--csv --file /home/raoof/.coffeescript/coffeelint.json"
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
 
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -49,7 +56,7 @@ set directory=/tmp " Don't clutter my dirs up with swp and tmp files
 "set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 
 set smartindent
-set tabstop=2
+set tabstop=4
 set shiftwidth=4
 set expandtab
 
@@ -69,10 +76,10 @@ map K <Nop>
 inoremap <C-U> <C-G>u<C-U>
 
 " Map ctrl-movement keys to window switching
-map <C-k> <C-w><Up>
-map <C-j> <C-w><Down>
-map <C-l> <C-w><Right>
-map <C-h> <C-w><Left>
+map <C-k> <esc>:wincmd k<CR>
+map <C-j> <esc>:wincmd j<CR>
+map <C-l> <esc>:wincmd l<CR>
+map <C-h> <esc>:wincmd h<CR>
 
 " Switch to alternate file
 map <ESC>[27;5;9~ :bnext<cr>
@@ -80,6 +87,8 @@ map <ESC>[27;6;9~ :bprevious<cr>
 "map <C-Tab> :bnext<cr>
 "map <C-S-Tab> :bprevious<cr>
 
+map <C-w> <esc>:bd<CR>
+imap <C-w> <esc>:bd<CR>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map <C-q> <esc>:q<CR>
@@ -108,6 +117,8 @@ let NERDTreeMapActivateNode='l'
 let NERDTreeMapCloseDir='h'
 let NERDTreeMapToggleHidden='zh'
 "let NERDTreeMapJumpParent='h'
+"
+"let g:airline_powerline_fonts = 1
 
 set t_Co=256
 "set term=xterm-256color
@@ -117,6 +128,13 @@ endif
 colorscheme wombat256i
 set mouse=a
 
+
+" coffeescript
+autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+"autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+"autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent
+map <F5> :CoffeeRun<CR>
+map <F6> :CoffeeWatch<CR>
 
 " Enable omni completion.
 "autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS

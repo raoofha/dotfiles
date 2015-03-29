@@ -19,7 +19,8 @@ font xft:DejaVu Sans Mono 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xterm 
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -52,10 +53,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+v split h
+bindsym $mod+c split h
 
 # split in vertical orientation
-bindsym $mod+c split v
+bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
@@ -152,15 +153,31 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-mode "workspace" {
-	bindsym j workspace prev
-	bindsym h workspace prev
-	bindsym k workspace next 
-	bindsym l workspace next 
+mode "mouse" {
+    bindsym w exec xdotool mousemove_relative -- 0 -30
+    bindsym Shift+W exec xdotool mousemove_relative -- 0 -15
+    bindsym s exec xdotool mousemove_relative -- 0 30
+    bindsym Shift+S exec xdotool mousemove_relative -- 0 15
+    bindsym d exec xdotool mousemove_relative -- 30 0
+    bindsym Shift+d exec xdotool mousemove_relative -- 15 0
+    bindsym a exec xdotool mousemove_relative -- -30 0
+    bindsym Shift+A exec xdotool mousemove_relative -- -15 0
+    bindsym k exec xdotool mousemove_relative -- 0 -30
+    bindsym Shift+K exec xdotool mousemove_relative -- 0 -15
+    bindsym j exec xdotool mousemove_relative -- 0 30
+    bindsym Shift+J exec xdotool mousemove_relative -- 0 15
+    bindsym l exec xdotool mousemove_relative -- 30 0
+    bindsym Shift+L exec xdotool mousemove_relative -- 15 0
+    bindsym h exec xdotool mousemove_relative -- -30 0
+    bindsym Shift+H exec xdotool mousemove_relative -- -15 0
+    bindsym f exec xdotool click 1
+    bindsym r exec xdotool click 3
+    bindsym e exec xdotool mousedown 1
+    bindsym q exec xdotool mouseup 1
 	bindsym Escape mode "default"
 }
+bindsym $mod+m mode "mouse"
 
-bindsym $mod+w mode "workspace"
 
 #bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 #bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
@@ -183,21 +200,21 @@ hide_edge_borders both
 workspace_auto_back_and_forth yes
 workspace_layout tabbed
 
-assign [class="(?i)gvim"] 3
-assign [class="(?i)firefox"] 1
-assign [class="(?i)chromium"] 1
-assign [class="(?i)vlc"] 2
-assign [class="(?i)mplayer"] 2
+#assign [class="(?i)gvim"] 3
+#assign [class="(?i)firefox"] 1
+#assign [class="(?i)chromium"] 1
+#assign [class="(?i)vlc"] 2
+#assign [class="(?i)mplayer"] 2
 
 exec ~/.bg_random.sh
 exec chromium & goldendict
 
 #bar {
-#	mode hide    	
-#	#modifier Mod3 
+	#mode hide    	
+	#modifier Mod3 
 #	tray_output primary
-#	#status_command i3status
-#	#position 	top
+#	status_command i3status
+	#position 	top
 #}
 
 
