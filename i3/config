@@ -208,6 +208,7 @@ workspace_layout tabbed
 
 exec ~/.bg_random.sh
 exec chromium & goldendict
+exec dropbox start
 
 #bar {
 	#mode hide    	
