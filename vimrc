@@ -27,6 +27,7 @@ call vundle#end()            " required
 filetype plugin indent on     " required!
 
 let g:syntastic_coffee_coffeelint_args = "--csv --file /home/raoof/.coffeescript/coffeelint.json"
+let g:syntastic_python_python_exec = '/usr/bin/python3'
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 
