@@ -18,3 +18,18 @@
 
 (global-set-key (kbd "<C-tab>") 'next-buffer)
 (global-set-key (kbd "<C-S-tab>") 'previous-buffer)
+
+(global-unset-key (kbd "<C-w>"))
+(global-set-key (kbd "<C-w>") 'kill-buffer)
+
+(global-unset-key (kbd "<C-j>"))
+(global-unset-key (kbd "<C-k>"))
+(global-unset-key (kbd "<C-l>"))
+(global-unset-key (kbd "<C-h>"))
+(global-set-key (kbd "<C-j>") 'evil-window-down)
+(global-set-key (kbd "<C-k>") 'evil-window-up)
+(global-set-key (kbd "<C-h>") 'evil-window-left)
+(global-set-key (kbd "<C-l>") 'evil-window-right)
+
+(global-unset-key (kbd "<C-s>"))
+(global-set-key (kbd "<C-s>") 'save-buffer)
