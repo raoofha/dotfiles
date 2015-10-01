@@ -16,6 +16,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'nikvdp/ejs-syntax'
+Plugin 'lambdatoast/elm.vim'
 
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
@@ -24,7 +25,7 @@ Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 "Plugin 'guns/vim-sexp'
 "Plugin 'tpope/vim-classpath'
 "Plugin 'kien/rainbow_parentheses.vim'
-
+Plugin 'wincent/command-t'
 "Plugin 'scrooloose/nerdcommenter'
 "Plugin 'jayferd/eco.vim'
 "Plugin 'briancollins/vim-jst' 
@@ -153,3 +154,6 @@ map <F6> :CoffeeWatch<CR>
 "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 "autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "autocmd BufWritePost,FileWritePost *.coffee :silent !coffee -b -c <afile>
+
+
+set nohlsearch
