@@ -1,7 +1,0 @@
-max-upload-limit=1k
-always-resume=true
-check-integrity=true
-continue=true
-bt-max-peers=4
-max-connection-per-server=4
-summary-interval=0

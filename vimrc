@@ -17,6 +17,8 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'nikvdp/ejs-syntax'
 Plugin 'lambdatoast/elm.vim'
+Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'mtscout6/vim-cjsx'
 
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
@@ -157,3 +159,5 @@ map <F6> :CoffeeWatch<CR>
 
 
 set nohlsearch
+
+"let g:syntastic_coffee_coffeelint_args = "--csv --file package.json"
