@@ -19,3 +19,5 @@ subfont-encoding=unicode
 # Set subtitle file encoding.
 unicode=yes
 utf8=yes
+
+#subcp=enca:fa:cp1254
