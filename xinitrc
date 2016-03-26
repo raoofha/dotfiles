@@ -8,5 +8,5 @@ xrdb .Xresources
 #unclutter &
 xmodmap -e "keysym Menu = Hyper_L" &
 keynav &
-exec i3
+exec dbus-launch i3
 #exec ck-launch-session  i3
