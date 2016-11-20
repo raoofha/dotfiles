@@ -14,38 +14,55 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'nikvdp/ejs-syntax'
-Plugin 'lambdatoast/elm.vim'
-Plugin 'dart-lang/dart-vim-plugin'
-"Plugin 'mtscout6/vim-cjsx'
-Plugin 'virtanen/vim-octave'
+"Plugin 'digitaltoad/vim-jade'
+"Plugin 'nikvdp/ejs-syntax'
+"Plugin 'lambdatoast/elm.vim'
 
-Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-fireplace'
+"Plugin 'elmcast/elm-vim'
+Plugin 'lambdatoast/elm.vim'
+
+Plugin 'leafgarland/typescript-vim'
+
+"Plugin 'dart-lang/dart-vim-plugin'
+"Plugin 'mtscout6/vim-cjsx'
+Plugin 'jvirtanen/vim-octave'
+
+"Plugin 'guns/vim-clojure-static'
+"Plugin 'tpope/vim-fireplace'
 "Plugin 'vim-scripts/paredit.vim'
 Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 "Plugin 'guns/vim-sexp'
 "Plugin 'tpope/vim-classpath'
 "Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'wincent/command-t'
+"Plugin 'wincent/command-t'
 "Plugin 'scrooloose/nerdcommenter'
 "Plugin 'jayferd/eco.vim'
 "Plugin 'briancollins/vim-jst' 
 "Plugin 'pangloss/vim-javascript'
 "Plugin 'KabbAmine/vCoolor.vim'
+
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'tpope/vim-abolish'
+
+Plugin '/home/raoof/projects/dream-vim/.git'
+
+Plugin 'jdonaldson/vaxe'
+
+Plugin 'tikhomirov/vim-glsl'
+
+"Plugin 'flazz/vim-colorschemes'
+"Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-colorscheme-switcher'
+"Plugin 'felixhummel/setcolors.vim'
+
+Plugin 'derekwyatt/vim-sbt'
+Plugin 'derekwyatt/vim-scala'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
 filetype plugin indent on     " required!
 
-let g:syntastic_coffee_coffeelint_args = "--csv --file /home/raoof/.coffeescript/coffeelint.json"
-let g:syntastic_python_python_exec = '/usr/bin/python3'
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -70,8 +87,8 @@ set directory=/tmp " Don't clutter my dirs up with swp and tmp files
 "set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 
 set smartindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -162,3 +179,16 @@ map <F6> :CoffeeWatch<CR>
 set nohlsearch
 
 "let g:syntastic_coffee_coffeelint_args = "--csv --file package.json"
+let g:syntastic_coffee_coffeelint_args = "--csv --file /home/raoof/.coffeescript/coffeelint.json"
+let g:syntastic_python_python_exec = '/usr/bin/python3'
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+let g:elm_syntastic_show_warnings = 1
+"let g:elm_format_autosave = 1
+
+" syntax highlighting for ejs
+au BufNewFile,BufRead *.ejs set filetype=html

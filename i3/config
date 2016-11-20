@@ -20,7 +20,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec xterm 
+#bindsym $mod+Return exec xterm 
+bindsym $mod+Return exec xterm -e "cd `xcwd` && /bin/zsh"
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -189,6 +190,8 @@ bindsym $mod+b exec ~/.bg_random.sh
 bindsym $mod+F4 exec `xrandr --output VGA1 --auto --pos -1024x800` 
 bindsym $mod+F5 exec sudo pm-suspend
 
+#bindsym $mod+F12 exec `import -window "$(xdotool getwindowfocus -f)" ~/screenshot.jpg`
+bindsym $mod+F12 exec `scrot '%Y-%m-%d_%H:%M:%S_$wx$h.png' -e 'mv $f ~/'`
 
 
 #bindsym Mod3 exec sleep 1s 
@@ -205,6 +208,7 @@ workspace_layout tabbed
 #assign [class="(?i)chromium"] 1
 #assign [class="(?i)vlc"] 2
 #assign [class="(?i)mplayer"] 2
+assign [class="^Goldendict$"] 4
 
 exec ~/.bg_random.sh
 exec chromium & goldendict

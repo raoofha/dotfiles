@@ -14,11 +14,12 @@ nolirc=true
 sub-fuzziness=2
 #expand=:::::1
 # Set font encoding.
-subfont-encoding=unicode
+#subfont-encoding=unicode
 
 # Set subtitle file encoding.
-unicode=yes
+#unicode=yes
+#subcp=enca:fa:utf8
+#subcp=cp1256
 utf8=yes
-subcp=cp1256
 
 #subcp=enca:fa:cp1254

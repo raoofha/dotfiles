@@ -4,9 +4,9 @@
 *vt100.translations: #override \n\
     Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n\
     Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n 
-*.transparent: true
+!*.transparent: true
 !URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
-*.shading: 20 
+!*.shading: 20 
 
 !*font: 9x15
 !*faceName: Liberation Mono:size=12:antialias=true
@@ -16,6 +16,9 @@
 URxvt.scrollBar: false
 xterm*borderWidth: 0
 URxvt.background: [95]#000000
+!URxvt.font: 9x16
+URxvt.font:     xft:bitstream vera sans mono:size=11:antialias=true
+URxvt.boldFont: xft:bitstream vera sans mono:bold:size=11:antialias=true
 !URxvt.font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-1
 !URxvt.font: xft:serif:size=10
 
@@ -45,3 +48,4 @@ URxvt.background: [95]#000000
 
 
 !XTerm*metaSendsEscape: true
+
