@@ -57,7 +57,9 @@ Plugin 'tikhomirov/vim-glsl'
 
 Plugin 'derekwyatt/vim-sbt'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'ensime/ensime-vim'
 
+Plugin 'chriskempson/vim-tomorrow-theme'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 

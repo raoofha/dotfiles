@@ -57,6 +57,10 @@
     magit
     ;; for scheme
     ;quack
+    ;scala-mode
+    ;sanityinc-tomorrow-bright
+    ;color-theme-sanityinc-tomorrow
+    ensime
     ))
 
 
@@ -67,10 +71,6 @@
         (package-install p)))
 
 (evil-mode 1)
-
-
-(custom-set-variables '(coffee-tab-width 4))
-
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
@@ -87,6 +87,7 @@
 
 (global-set-key (kbd "<C-tab>") 'next-buffer)
 (global-set-key (kbd "<C-S-tab>") 'previous-buffer)
+(global-set-key (kbd "<C-iso-lefttab>") 'previous-buffer)
 
 ;(global-set-key (kbd "C-w") 'kill-buffer)
 
@@ -109,3 +110,23 @@
 ;;; This is the binary name of my scheme implementation
 (setq scheme-program-name "scheme")
 ;------------------------------------------------------
+
+;(load-theme 'sanityinc-tomorrow-bright)
+;(require 'sanityinc-tomorrow-bright)
+;(require 'color-theme-sanityinc-tomorrow)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (sanityinc-tomorrow-bright)))
+ '(custom-safe-themes
+   (quote
+    ("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
+ '(inhibit-startup-screen t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
