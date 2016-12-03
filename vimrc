@@ -56,7 +56,7 @@ Plugin 'tikhomirov/vim-glsl'
 
 Plugin 'derekwyatt/vim-sbt'
 Plugin 'derekwyatt/vim-scala'
-Plugin 'ensime/ensime-vim'
+"Plugin 'ensime/ensime-vim'
 
 Plugin 'chriskempson/vim-tomorrow-theme'
 

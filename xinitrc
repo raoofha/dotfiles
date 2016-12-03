@@ -10,3 +10,6 @@ xmodmap -e "keysym Menu = Hyper_L" &
 keynav &
 exec dbus-launch i3
 #exec ck-launch-session  i3
+
+# turn off the beep sound
+xset b off
