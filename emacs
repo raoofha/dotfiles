@@ -61,6 +61,8 @@
     ;sanityinc-tomorrow-bright
     ;color-theme-sanityinc-tomorrow
     ensime
+    haskell-mode
+    elm-mode
     ))
 
 

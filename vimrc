@@ -16,10 +16,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'kchmck/vim-coffee-script'
 "Plugin 'digitaltoad/vim-jade'
 "Plugin 'nikvdp/ejs-syntax'
-"Plugin 'lambdatoast/elm.vim'
 
-"Plugin 'elmcast/elm-vim'
-Plugin 'lambdatoast/elm.vim'
+Plugin 'elmcast/elm-vim'
+"Plugin 'lambdatoast/elm.vim'
 
 Plugin 'leafgarland/typescript-vim'
 
@@ -35,13 +34,13 @@ Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 "Plugin 'tpope/vim-classpath'
 "Plugin 'kien/rainbow_parentheses.vim'
 "Plugin 'wincent/command-t'
-"Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'
 "Plugin 'jayferd/eco.vim'
 "Plugin 'briancollins/vim-jst' 
 "Plugin 'pangloss/vim-javascript'
 "Plugin 'KabbAmine/vCoolor.vim'
 
-Plugin 'mustache/vim-mustache-handlebars'
+"Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-abolish'
 
 Plugin '/home/raoof/projects/dream-vim/.git'
@@ -60,6 +59,18 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'ensime/ensime-vim'
 
 Plugin 'chriskempson/vim-tomorrow-theme'
+
+Plugin 'eagletmt/neco-ghc'
+Plugin 'ervandew/supertab'
+Plugin 'godlygeek/tabular'
+"Plugin 'eagletmt/ghcmod-vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Twinside/vim-hoogle'
+
+"Plugin 'Shougo/neocomplete.vim'
+
+"Plugin 'dsolstad/vim-wombat256i'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -126,7 +137,7 @@ map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map <C-q> <esc>:q<CR>
 imap <C-q> <esc>:q<CR>
-map :Q :q<CR>
+"map :Q :q<CR>
 map <F9> :Explore<CR>
 
 "map <C-w> <esc>:bd<CR>
@@ -158,7 +169,8 @@ set t_Co=256
 if $TERM == 'linux'
 	set term=fbterm
 endif
-colorscheme wombat256i
+"colorscheme wombat256i
+colorscheme Tomorrow-Night-Bright
 set mouse=a
 
 
@@ -166,8 +178,10 @@ set mouse=a
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 "autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 "autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent
-map <F5> :CoffeeRun<CR>
-map <F6> :CoffeeWatch<CR>
+"map <F5> :CoffeeRun<CR>
+"map <F6> :CoffeeWatch<CR>
+autocmd FileType coffee map <buffer> <F5> :CoffeeRun<CR>
+autocmd FileType coffee map <buffer> <F6> :CoffeeWatch<CR>
 
 " Enable omni completion.
 "autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -194,3 +208,66 @@ let g:elm_syntastic_show_warnings = 1
 
 " syntax highlighting for ejs
 au BufNewFile,BufRead *.ejs set filetype=html
+
+" haskell neco-ghc plugin config
+"-------------------------------------------------------
+
+" http://www.stephendiehl.com/posts/vim_2016.html
+"-------------------------------------------------------
+map ,s :SyntasticToggleMode<CR>
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+map <silent> tw :GhcModTypeInsert<CR>
+map <silent> ts :GhcModSplitFunCase<CR>
+map <silent> tq :GhcModType<CR>
+map <silent> te :GhcModTypeClear<CR>
+
+let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+
+if has("gui_running")
+  imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+else " no gui
+  if has("unix")
+    inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+  endif
+endif
+
+let g:haskellmode_completion_ghc = 1
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+let g:haskell_tabular = 1
+
+vmap a= :Tabularize /=<CR>
+vmap a; :Tabularize /::<CR>
+vmap a- :Tabularize /-><CR>
+
+map <c-o> :CtrlP<CR>
+noremap ,b<space> :CtrlPBuffer<cr>
+let g:ctrlp_custom_ignore = '\v[\/]((\.(git|stack-work))|node_modules)$'
+"-------------------------------------------------------
+
+" make c-q to work
+silent !stty -ixon > /dev/null 2>/dev/null
+
+" hoogle
+"au BufNewFile,BufRead *.hs map <buffer> <F1> :Hoogle 
+"au BufNewFile,BufRead *.hs map <buffer> <S-F1> :HoogleLine<CR>
+"au BufNewFile,BufRead *.hs map <buffer> <C-F1> :HoogleClose<CR>
+au FileType haskell map <buffer> <F1> :Hoogle<CR>
+au FileType haskell map <buffer> <S-F1> :HoogleLine<CR>
+
+" tags for haskell and elm
+set tags=tags;/,codex.tags;/
+
+" elm
+let g:syntastic_auto_loc_list = 1
+let g:elm_syntastic_show_warnings = 1
+au FileType elm map <buffer> <F1> :ElmShowDocs<CR>

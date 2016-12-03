@@ -1,7 +1,7 @@
-#! /bin/zsh
+#! /bin/bash
 
 #ln -fs ~/projects/dotfiles/zshrc ~/.zshrc
-#ln -s ~/github/dotfiles/vim ~/.vim
+ln -fs ~/projects/dotfiles/vim ~/.vim/bundle/vim
 ln -fs ~/projects/dotfiles/vimrc ~/.vimrc
 ln -fs ~/projects/dotfiles/xinitrc ~/.xinitrc
 ln -fs ~/projects/dotfiles/tmux.conf ~/.tmux.conf
