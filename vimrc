@@ -2,6 +2,7 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+set nowritebackup              " dangerous
 
 filetype off                   " required!
 
@@ -66,8 +67,12 @@ Plugin 'godlygeek/tabular'
 "Plugin 'eagletmt/ghcmod-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Twinside/vim-hoogle'
+"Plugin 'eagletmt/ghcmod-vim'
+"Plugin 'Shougo/vimproc.vim'
 
 "Plugin 'Shougo/neocomplete.vim'
+
+Plugin 'raichoo/purescript-vim'
 
 "Plugin 'dsolstad/vim-wombat256i'
 
@@ -140,26 +145,26 @@ imap <C-q> <esc>:q<CR>
 "map :Q :q<CR>
 map <F9> :Explore<CR>
 
-"map <C-w> <esc>:bd<CR>
-"imap <C-w> <esc>:bd<CR>
+let mapleader = ","
+
 " Tab completion
 " will insert tab at beginning of line,
 " will use completion if not at beginning
-set wildmode=list:longest,list:full
-set complete=.,w,t
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-
-let NERDTreeMapActivateNode='l'
-let NERDTreeMapCloseDir='h'
-let NERDTreeMapToggleHidden='zh'
+"set wildmode=list:longest,list:full
+"set complete=.,w,t
+"function! InsertTabWrapper()
+"    let col = col('.') - 1
+"    if !col || getline('.')[col - 1] !~ '\k'
+"        return "\<tab>"
+"    else
+"        return "\<c-p>"
+"    endif
+"endfunction
+"inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+"
+"let NERDTreeMapActivateNode='l'
+"let NERDTreeMapCloseDir='h'
+"let NERDTreeMapToggleHidden='zh'
 "let NERDTreeMapJumpParent='h'
 "
 "let g:airline_powerline_fonts = 1
@@ -268,6 +273,10 @@ au FileType haskell map <buffer> <S-F1> :HoogleLine<CR>
 set tags=tags;/,codex.tags;/
 
 " elm
-let g:syntastic_auto_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
 let g:elm_syntastic_show_warnings = 1
 au FileType elm map <buffer> <F1> :ElmShowDocs<CR>
+
+"au FileType haskell map <buffer> <c-]> :exe "tag ".expand('<cWORD>')<CR>
+au FileType haskell setlocal equalprg=hindent
+map <c-s-f> gg=G''

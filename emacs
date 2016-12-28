@@ -60,9 +60,11 @@
     ;scala-mode
     ;sanityinc-tomorrow-bright
     ;color-theme-sanityinc-tomorrow
-    ensime
+    ;ensime
     haskell-mode
     elm-mode
+    ;powerline
+    flycheck
     ))
 
 
@@ -99,6 +101,15 @@
 (global-set-key (kbd "C-l") 'evil-window-right)
 
 (global-set-key (kbd "C-s") 'save-buffer)
+(global-set-key (kbd "C-q") 'evil-quit)
+;(global-unset-key (kbd "C-w"))
+;(global-unset-key "\C-w")
+;(global-set-key (kbd "C-w") 'evil-delete-buffer)
+(eval-after-load "evil-maps"
+  (dolist (map '(evil-motion-state-map
+                 evil-insert-state-map
+                 evil-emacs-state-map))
+    (define-key (eval map) "\C-w" 'evil-delete-buffer)))
 
 
 ; scheme config
@@ -132,3 +143,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;(powerline-default-theme)
+(setq vc-follow-symlinks nil)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+;; store all backup and autosave files in the tmp dir
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
+;(setq noautochdir t) ; wrong
