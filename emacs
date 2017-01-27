@@ -1,7 +1,7 @@
 (require 'package)
 
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 
 (setq package-enable-at-startup nil)
@@ -28,21 +28,21 @@
     clojure-mode
 
     ;; extra syntax highlighting for clojure
-    clojure-mode-extra-font-locking
+    ;clojure-mode-extra-font-locking
 
     ;; integration with a Clojure REPL
     ;; https://github.com/clojure-emacs/cider
     cider
-    ac-cider
+    ;;ac-cider
     ;; allow ido usage in as many contexts as possible. see
     ;; customizations/navigation.el line 23 for a description
     ;; of ido
-    ido-ubiquitous
+    ;ido-ubiquitous
 
     ;; Enhances M-x to allow easier execution of commands. Provides
     ;; a filterable list of possible commands in the minibuffer
     ;; http://www.emacswiki.org/emacs/Smex
-    smex
+    ;smex
 
     ;; project navigation
     projectile
@@ -51,7 +51,7 @@
     rainbow-delimiters
 
     ;; edit html tags like sexps
-    tagedit
+    ;tagedit
 
     ;; git integration
     magit
@@ -80,6 +80,8 @@
 (menu-bar-mode -1)
 
 (global-linum-mode t)
+(setq linum-format "%d ")
+;(setq linum-format "%d\u2502")
 
 ; unbind C-w in evil
 ;(eval-after-load "evil-maps"
@@ -110,6 +112,21 @@
                  evil-insert-state-map
                  evil-emacs-state-map))
     (define-key (eval map) "\C-w" 'evil-delete-buffer)))
+
+(set-default 'truncate-lines t)
+(savehist-mode 1)
+(setq scroll-step            1
+      scroll-conservatively  10000)
+
+;(define-key evil-normal-state-map (kbd "return") nil)
+(evil-define-key 'normal clojure-mode-map (kbd "RET") 'cider-eval-last-sexp-to-repl)
+
+;(with-eval-after-load 'evil-maps
+;  (define-key evil-normal-state-map (kbd "o") 'evil-end-of-line))
+
+
+
+
 
 
 ; scheme config

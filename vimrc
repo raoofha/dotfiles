@@ -28,7 +28,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'jvirtanen/vim-octave'
 
 "Plugin 'guns/vim-clojure-static'
-"Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-fireplace'
 "Plugin 'vim-scripts/paredit.vim'
 Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 "Plugin 'guns/vim-sexp'
@@ -44,7 +44,7 @@ Plugin 'scrooloose/nerdcommenter'
 "Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-abolish'
 
-Plugin '/home/raoof/projects/dream-vim/.git'
+"Plugin '/home/raoof/projects/dream-vim/.git'
 
 Plugin 'jdonaldson/vaxe'
 
@@ -69,12 +69,18 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Twinside/vim-hoogle'
 "Plugin 'eagletmt/ghcmod-vim'
 "Plugin 'Shougo/vimproc.vim'
+Plugin 'bitc/vim-hdevtools'
 
 "Plugin 'Shougo/neocomplete.vim'
 
 Plugin 'raichoo/purescript-vim'
 
 "Plugin 'dsolstad/vim-wombat256i'
+
+"Plugin '/home/raoof/projects/colon.vim/.git'
+"Plugin 'jpalardy/vim-slime'
+
+Plugin 'davidhalter/jedi-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -84,11 +90,11 @@ filetype plugin indent on     " required!
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
+"if has("vms")
+"  set nobackup		" do not keep a backup file, use versions instead
+"else
+"  set backup		" keep a backup file
+"endif
 set history=500		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -266,8 +272,8 @@ silent !stty -ixon > /dev/null 2>/dev/null
 "au BufNewFile,BufRead *.hs map <buffer> <F1> :Hoogle 
 "au BufNewFile,BufRead *.hs map <buffer> <S-F1> :HoogleLine<CR>
 "au BufNewFile,BufRead *.hs map <buffer> <C-F1> :HoogleClose<CR>
-au FileType haskell map <buffer> <F1> :Hoogle<CR>
-au FileType haskell map <buffer> <S-F1> :HoogleLine<CR>
+"au FileType haskell map <buffer> <F1> :Hoogle<CR>
+"au FileType haskell map <buffer> <S-F1> :HoogleLine<CR>
 
 " tags for haskell and elm
 set tags=tags;/,codex.tags;/
@@ -280,3 +286,14 @@ au FileType elm map <buffer> <F1> :ElmShowDocs<CR>
 "au FileType haskell map <buffer> <c-]> :exe "tag ".expand('<cWORD>')<CR>
 au FileType haskell setlocal equalprg=hindent
 map <c-s-f> gg=G''
+
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+
+" not working as I expected, override other filetypes
+au FileType clojure nmap <CR> cpp
+au FileType clojure nmap <C-]> ]<C-d>
+
+
+" python
+let g:jedi#goto_definitions_command = "<C-]>"

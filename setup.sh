@@ -11,5 +11,6 @@ ln -fs ~/projects/dotfiles/emacs ~/.emacs
 ln -fs ~/projects/dotfiles/bg_random.sh ~/.bg_random.sh
 ln -fs ~/projects/dotfiles/mplayer ~/.mplayer
 ln -fs ~/projects/dotfiles/xresources ~/.Xresources
+ln -fs ~/projects/dotfiles/jupyter-theme.css ~/.jupyter/custom/custom.css
 
 chmod +x ~/.bg_random.sh
