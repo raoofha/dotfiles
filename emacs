@@ -65,6 +65,7 @@
     elm-mode
     ;powerline
     flycheck
+    ein
     ))
 
 
