@@ -2,7 +2,15 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-set nowritebackup              " dangerous
+"set nowritebackup              " dangerous
+set backup
+set swapfile
+"set backupcopy=yes
+set backupdir=/tmp
+set directory=/tmp " Don't clutter my dirs up with swp and tmp files
+
+set exrc "allows for per-project configuration files
+set secure "disable unsafe commands in your project-specific .vimrc files
 
 filetype off                   " required!
 
@@ -82,6 +90,8 @@ Plugin 'raichoo/purescript-vim'
 
 Plugin 'davidhalter/jedi-vim'
 
+Plugin 'JBakamovic/yavide'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -106,8 +116,6 @@ set nowrap
 set clipboard=unnamedplus
 set hidden
 set autoindent		" always set autoindenting on
-set backupdir=/tmp
-set directory=/tmp " Don't clutter my dirs up with swp and tmp files
 "set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 
 set smartindent
@@ -297,3 +305,5 @@ au FileType clojure nmap <C-]> ]<C-d>
 
 " python
 let g:jedi#goto_definitions_command = "<C-]>"
+
+au BufNewFile,BufRead *.boot set filetype=clojure

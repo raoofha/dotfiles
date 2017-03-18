@@ -7,7 +7,7 @@ xrdb .Xresources
 #xmodmap -e "add Mod3 = Menu" &
 #unclutter &
 xmodmap -e "keysym Menu = Hyper_L" &
-keynav &
+#keynav &
 exec dbus-launch i3
 #exec ck-launch-session  i3
 
