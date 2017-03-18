@@ -211,7 +211,7 @@ workspace_layout tabbed
 assign [class="^Goldendict$"] 4
 
 exec ~/.bg_random.sh
-exec chromium & goldendict
+exec chromium --enable-remote-extensions & goldendict
 exec dropbox start
 
 #bar {
