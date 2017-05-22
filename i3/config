@@ -211,15 +211,17 @@ workspace_layout tabbed
 assign [class="^Goldendict$"] 4
 
 exec ~/.bg_random.sh
-exec chromium --enable-remote-extensions & goldendict
+#exec chromium --enable-remote-extensions & goldendict
+exec chromium & goldendict
 exec dropbox start
 
 #bar {
-	#mode hide    	
-	#modifier Mod3 
-#	tray_output primary
-#	status_command i3status
-	#position 	top
+# mode hide    	
+# modifier Mod4 
+# #tray_output primary
+# #status_command i3status
+# #position 	top
+# hidden_state hide
 #}
 
 

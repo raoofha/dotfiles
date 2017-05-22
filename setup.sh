@@ -13,5 +13,7 @@ ln -fs ~/projects/dotfiles/mplayer ~/.mplayer
 ln -fs ~/projects/dotfiles/xresources ~/.Xresources
 #ln -fs ~/projects/dotfiles/jupyter-theme.css ~/.jupyter/custom/custom.css
 ln -fs ~/projects/dotfiles/inputrc ~/.inputrc
+ln -fs ~/projects/dotfiles/aria2.conf ~/.aria2/aria2.conf
+ln -fs ~/projects/dotfiles/user-dirs.dirs ~/.config/user-dirs.dirs
 
 chmod +x ~/.bg_random.sh

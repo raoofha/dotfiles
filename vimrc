@@ -3,99 +3,213 @@
 set nocompatible
 
 "set nowritebackup              " dangerous
+"set backupcopy=yes
 set backup
 set swapfile
-"set backupcopy=yes
 set backupdir=/tmp
 set directory=/tmp " Don't clutter my dirs up with swp and tmp files
+
+"set noswapfile
+"set nobackup
+"set nowb
+
+"set backup     " Enable backup files
+"set swapfile   " Use a swap file in current buffer
+"set nowb       " Write backup before saving
 
 set exrc "allows for per-project configuration files
 set secure "disable unsafe commands in your project-specific .vimrc files
 
-filetype off                   " required!
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-" let Vundle manage Vundle
-" required! 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'bling/vim-airline'
-Plugin 'scrooloose/syntastic'
-Plugin 'kchmck/vim-coffee-script'
+
+
+call plug#begin('~/.vim/bundle')
+Plug 'bling/vim-airline'
+Plug 'scrooloose/syntastic'
+Plug 'kchmck/vim-coffee-script'
 "Plugin 'digitaltoad/vim-jade'
 "Plugin 'nikvdp/ejs-syntax'
 
-Plugin 'elmcast/elm-vim'
+Plug 'elmcast/elm-vim'
 "Plugin 'lambdatoast/elm.vim'
 
-Plugin 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 
 "Plugin 'dart-lang/dart-vim-plugin'
 "Plugin 'mtscout6/vim-cjsx'
-Plugin 'jvirtanen/vim-octave'
+Plug 'jvirtanen/vim-octave'
 
 "Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-fireplace'
+Plug 'tpope/vim-fireplace'
 "Plugin 'vim-scripts/paredit.vim'
-Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
 "Plugin 'guns/vim-sexp'
 "Plugin 'tpope/vim-classpath'
 "Plugin 'kien/rainbow_parentheses.vim'
 "Plugin 'wincent/command-t'
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 "Plugin 'jayferd/eco.vim'
 "Plugin 'briancollins/vim-jst' 
 "Plugin 'pangloss/vim-javascript'
 "Plugin 'KabbAmine/vCoolor.vim'
 
 "Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'tpope/vim-abolish'
+Plug 'tpope/vim-abolish'
 
 "Plugin '/home/raoof/projects/dream-vim/.git'
 
-Plugin 'jdonaldson/vaxe'
+Plug 'jdonaldson/vaxe'
 
-Plugin 'tikhomirov/vim-glsl'
+Plug 'tikhomirov/vim-glsl'
 
 "Plugin 'flazz/vim-colorschemes'
 "Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-colorscheme-switcher'
 "Plugin 'felixhummel/setcolors.vim'
 
-Plugin 'derekwyatt/vim-sbt'
-Plugin 'derekwyatt/vim-scala'
+Plug 'derekwyatt/vim-sbt'
+Plug 'derekwyatt/vim-scala'
 "Plugin 'ensime/ensime-vim'
 
-Plugin 'chriskempson/vim-tomorrow-theme'
+Plug 'chriskempson/vim-tomorrow-theme'
 
-Plugin 'eagletmt/neco-ghc'
-Plugin 'ervandew/supertab'
-Plugin 'godlygeek/tabular'
+Plug 'eagletmt/neco-ghc'
+Plug 'ervandew/supertab'
+Plug 'godlygeek/tabular'
 "Plugin 'eagletmt/ghcmod-vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Twinside/vim-hoogle'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Twinside/vim-hoogle'
 "Plugin 'eagletmt/ghcmod-vim'
 "Plugin 'Shougo/vimproc.vim'
-Plugin 'bitc/vim-hdevtools'
+Plug 'bitc/vim-hdevtools'
 
 "Plugin 'Shougo/neocomplete.vim'
 
-Plugin 'raichoo/purescript-vim'
+Plug 'raichoo/purescript-vim'
 
 "Plugin 'dsolstad/vim-wombat256i'
 
 "Plugin '/home/raoof/projects/colon.vim/.git'
 "Plugin 'jpalardy/vim-slime'
 
-Plugin 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim'
 
-Plugin 'JBakamovic/yavide'
+Plug 'JBakamovic/yavide'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+Plug 'magicalbanana/vim-sql-syntax'
 
-filetype plugin indent on     " required!
+Plug 'reasonml/vim-reason-loader'
+Plug 'MartinLafreniere/vim-PairTools'
+
+Plug 'Valloric/YouCompleteMe'
+
+Plug 'venantius/vim-cljfmt'
+
+Plug 'sbdchd/neoformat'
+
+Plug 'Chiel92/vim-autoformat'
+
+call plug#end()
+
+
+
+
+
+
+
+
+"filetype off                   " required!
+
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+
+"" let Vundle manage Vundle
+"" required! 
+"Plugin 'gmarik/Vundle.vim'
+"Plugin 'bling/vim-airline'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'kchmck/vim-coffee-script'
+""Plugin 'digitaltoad/vim-jade'
+""Plugin 'nikvdp/ejs-syntax'
+
+"Plugin 'elmcast/elm-vim'
+""Plugin 'lambdatoast/elm.vim'
+
+"Plugin 'leafgarland/typescript-vim'
+
+""Plugin 'dart-lang/dart-vim-plugin'
+""Plugin 'mtscout6/vim-cjsx'
+"Plugin 'jvirtanen/vim-octave'
+
+""Plugin 'guns/vim-clojure-static'
+"Plugin 'tpope/vim-fireplace'
+""Plugin 'vim-scripts/paredit.vim'
+"Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+""Plugin 'guns/vim-sexp'
+""Plugin 'tpope/vim-classpath'
+""Plugin 'kien/rainbow_parentheses.vim'
+""Plugin 'wincent/command-t'
+"Plugin 'scrooloose/nerdcommenter'
+""Plugin 'jayferd/eco.vim'
+""Plugin 'briancollins/vim-jst' 
+""Plugin 'pangloss/vim-javascript'
+""Plugin 'KabbAmine/vCoolor.vim'
+
+""Plugin 'mustache/vim-mustache-handlebars'
+"Plugin 'tpope/vim-abolish'
+
+""Plugin '/home/raoof/projects/dream-vim/.git'
+
+"Plugin 'jdonaldson/vaxe'
+
+"Plugin 'tikhomirov/vim-glsl'
+
+""Plugin 'flazz/vim-colorschemes'
+""Plugin 'xolox/vim-misc'
+""Plugin 'xolox/vim-colorscheme-switcher'
+""Plugin 'felixhummel/setcolors.vim'
+
+"Plugin 'derekwyatt/vim-sbt'
+"Plugin 'derekwyatt/vim-scala'
+""Plugin 'ensime/ensime-vim'
+
+"Plugin 'chriskempson/vim-tomorrow-theme'
+
+"Plugin 'eagletmt/neco-ghc'
+"Plugin 'ervandew/supertab'
+"Plugin 'godlygeek/tabular'
+""Plugin 'eagletmt/ghcmod-vim'
+"Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'Twinside/vim-hoogle'
+""Plugin 'eagletmt/ghcmod-vim'
+""Plugin 'Shougo/vimproc.vim'
+"Plugin 'bitc/vim-hdevtools'
+
+""Plugin 'Shougo/neocomplete.vim'
+
+"Plugin 'raichoo/purescript-vim'
+
+""Plugin 'dsolstad/vim-wombat256i'
+
+""Plugin '/home/raoof/projects/colon.vim/.git'
+""Plugin 'jpalardy/vim-slime'
+
+"Plugin 'davidhalter/jedi-vim'
+
+"Plugin 'JBakamovic/yavide'
+
+"Plugin 'magicalbanana/vim-sql-syntax'
+
+"Plugin 'reasonml/vim-reason-loader'
+"Plugin 'MartinLafreniere/vim-PairTools'
+
+"Plugin 'Valloric/YouCompleteMe'
+
+"" All of your Plugins must be added before the following line
+"call vundle#end()            " required
+
+"filetype plugin indent on     " required!
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -128,6 +242,10 @@ set expandtab
 syntax on
 set hlsearch
 
+set guioptions-=m  "menu bar
+set guioptions-=T  "toolbar
+set guioptions-=r  "scrollbar
+set guicursor+=a:blinkon0
 
 " Disable Ex mode
 map Q <Nop>
@@ -222,8 +340,6 @@ let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-let g:elm_syntastic_show_warnings = 1
-"let g:elm_format_autosave = 1
 
 " syntax highlighting for ejs
 au BufNewFile,BufRead *.ejs set filetype=html
@@ -288,7 +404,8 @@ set tags=tags;/,codex.tags;/
 
 " elm
 "let g:syntastic_auto_loc_list = 1
-let g:elm_syntastic_show_warnings = 1
+"let g:elm_syntastic_show_warnings = 1
+let g:elm_format_autosave = 1
 au FileType elm map <buffer> <F1> :ElmShowDocs<CR>
 
 "au FileType haskell map <buffer> <c-]> :exe "tag ".expand('<cWORD>')<CR>
@@ -307,3 +424,40 @@ au FileType clojure nmap <C-]> ]<C-d>
 let g:jedi#goto_definitions_command = "<C-]>"
 
 au BufNewFile,BufRead *.boot set filetype=clojure
+
+
+let g:syntastic_javascript_checkers = ['eslint']
+
+" reason
+let g:syntastic_reason_checkers=['merlin']
+autocmd FileType reason let g:pairtools_reason_pairclamp = 1
+autocmd FileType reason let g:pairtools_reason_tagwrench = 0
+autocmd FileType reason let g:pairtools_reason_jigsaw    = 1
+autocmd FileType reason let g:pairtools_reason_autoclose  = 1
+autocmd FileType reason let g:pairtools_reason_forcepairs = 0
+autocmd FileType reason let g:pairtools_reason_closepairs = "(:),[:],{:}" . ',":"'
+autocmd FileType reason let g:pairtools_reason_smartclose = 1
+autocmd FileType reason let g:pairtools_reason_smartcloserules = '\w,(,&,\*'
+autocmd FileType reason let g:pairtools_reason_antimagic  = 1
+autocmd FileType reason let g:pairtools_reason_antimagicfield  = "Comment,String,Special"
+autocmd FileType reason let g:pairtools_reason_pcexpander = 1
+autocmd FileType reason let g:pairtools_reason_pceraser   = 1
+autocmd FileType reason let g:pairtools_reason_tagwrenchhook = 'tagwrench#BuiltinNoHook'
+autocmd FileType reason let g:pairtools_reason_twexpander = 0
+autocmd FileType reason let g:pairtools_reason_tweraser   = 0
+autocmd FileType reason let g:pairtools_reason_apostrophe = 0
+
+" typescript
+if !exists("g:ycm_semantic_triggers")
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
+
+
+autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --trailing-comma\ es5
+let g:neoformat_try_formatprg = 1
+autocmd BufWritePre *.js Neoformat
+"autocmd BufWritePre,TextChanged,InsertLeave *.js Neoformat
+
+"au BufWrite * :Autoformat
+noremap <F3> :Autoformat<CR>

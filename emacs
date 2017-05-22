@@ -3,6 +3,7 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 ;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+(add-to-list 'load-path "~/.emacs.d/otherpackage")
 
 (setq package-enable-at-startup nil)
 (package-initialize)
@@ -79,6 +80,9 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
+
+;(load "evil-noautochdir.el")
+(require 'evil-noautochdir)
 
 (global-linum-mode t)
 (setq linum-format "%d ")
