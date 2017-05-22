@@ -20,7 +20,7 @@ set directory=/tmp " Don't clutter my dirs up with swp and tmp files
 set exrc "allows for per-project configuration files
 set secure "disable unsafe commands in your project-specific .vimrc files
 
-
+set visualbell t_vb=
 
 
 
