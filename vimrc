@@ -110,6 +110,8 @@ Plug 'sbdchd/neoformat'
 
 Plug 'Chiel92/vim-autoformat'
 
+Plug 'jeroenbourgois/vim-actionscript'
+
 call plug#end()
 
 

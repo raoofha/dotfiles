@@ -34,12 +34,12 @@
               ]
             },
             {
-              "name": "chrome",
+              "name": "chromium",
               "type": "con",
               "percent": 0.35,
               "swallows": [
                   {
-                      "class": "^chromium$"
+                      "class": "^Chromium$"
                   }
               ]
             }
