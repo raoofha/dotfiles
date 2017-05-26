@@ -102,7 +102,7 @@ Plug 'magicalbanana/vim-sql-syntax'
 Plug 'reasonml/vim-reason-loader'
 Plug 'MartinLafreniere/vim-PairTools'
 
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 Plug 'venantius/vim-cljfmt'
 
