@@ -104,7 +104,7 @@ Plug 'MartinLafreniere/vim-PairTools'
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
-Plug 'venantius/vim-cljfmt'
+"Plug 'venantius/vim-cljfmt'
 
 Plug 'sbdchd/neoformat'
 
@@ -114,113 +114,9 @@ Plug 'jeroenbourgois/vim-actionscript'
 
 call plug#end()
 
-
-
-
-
-
-
-
-"filetype off                   " required!
-
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-
-"" let Vundle manage Vundle
-"" required! 
-"Plugin 'gmarik/Vundle.vim'
-"Plugin 'bling/vim-airline'
-"Plugin 'scrooloose/syntastic'
-"Plugin 'kchmck/vim-coffee-script'
-""Plugin 'digitaltoad/vim-jade'
-""Plugin 'nikvdp/ejs-syntax'
-
-"Plugin 'elmcast/elm-vim'
-""Plugin 'lambdatoast/elm.vim'
-
-"Plugin 'leafgarland/typescript-vim'
-
-""Plugin 'dart-lang/dart-vim-plugin'
-""Plugin 'mtscout6/vim-cjsx'
-"Plugin 'jvirtanen/vim-octave'
-
-""Plugin 'guns/vim-clojure-static'
-"Plugin 'tpope/vim-fireplace'
-""Plugin 'vim-scripts/paredit.vim'
-"Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-""Plugin 'guns/vim-sexp'
-""Plugin 'tpope/vim-classpath'
-""Plugin 'kien/rainbow_parentheses.vim'
-""Plugin 'wincent/command-t'
-"Plugin 'scrooloose/nerdcommenter'
-""Plugin 'jayferd/eco.vim'
-""Plugin 'briancollins/vim-jst' 
-""Plugin 'pangloss/vim-javascript'
-""Plugin 'KabbAmine/vCoolor.vim'
-
-""Plugin 'mustache/vim-mustache-handlebars'
-"Plugin 'tpope/vim-abolish'
-
-""Plugin '/home/raoof/projects/dream-vim/.git'
-
-"Plugin 'jdonaldson/vaxe'
-
-"Plugin 'tikhomirov/vim-glsl'
-
-""Plugin 'flazz/vim-colorschemes'
-""Plugin 'xolox/vim-misc'
-""Plugin 'xolox/vim-colorscheme-switcher'
-""Plugin 'felixhummel/setcolors.vim'
-
-"Plugin 'derekwyatt/vim-sbt'
-"Plugin 'derekwyatt/vim-scala'
-""Plugin 'ensime/ensime-vim'
-
-"Plugin 'chriskempson/vim-tomorrow-theme'
-
-"Plugin 'eagletmt/neco-ghc'
-"Plugin 'ervandew/supertab'
-"Plugin 'godlygeek/tabular'
-""Plugin 'eagletmt/ghcmod-vim'
-"Plugin 'ctrlpvim/ctrlp.vim'
-"Plugin 'Twinside/vim-hoogle'
-""Plugin 'eagletmt/ghcmod-vim'
-""Plugin 'Shougo/vimproc.vim'
-"Plugin 'bitc/vim-hdevtools'
-
-""Plugin 'Shougo/neocomplete.vim'
-
-"Plugin 'raichoo/purescript-vim'
-
-""Plugin 'dsolstad/vim-wombat256i'
-
-""Plugin '/home/raoof/projects/colon.vim/.git'
-""Plugin 'jpalardy/vim-slime'
-
-"Plugin 'davidhalter/jedi-vim'
-
-"Plugin 'JBakamovic/yavide'
-
-"Plugin 'magicalbanana/vim-sql-syntax'
-
-"Plugin 'reasonml/vim-reason-loader'
-"Plugin 'MartinLafreniere/vim-PairTools'
-
-"Plugin 'Valloric/YouCompleteMe'
-
-"" All of your Plugins must be added before the following line
-"call vundle#end()            " required
-
-"filetype plugin indent on     " required!
-
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-"if has("vms")
-"  set nobackup		" do not keep a backup file, use versions instead
-"else
-"  set backup		" keep a backup file
-"endif
 set history=500		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -281,28 +177,6 @@ map <F9> :Explore<CR>
 
 let mapleader = ","
 
-" Tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
-"set wildmode=list:longest,list:full
-"set complete=.,w,t
-"function! InsertTabWrapper()
-"    let col = col('.') - 1
-"    if !col || getline('.')[col - 1] !~ '\k'
-"        return "\<tab>"
-"    else
-"        return "\<c-p>"
-"    endif
-"endfunction
-"inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-"
-"let NERDTreeMapActivateNode='l'
-"let NERDTreeMapCloseDir='h'
-"let NERDTreeMapToggleHidden='zh'
-"let NERDTreeMapJumpParent='h'
-"
-"let g:airline_powerline_fonts = 1
-
 set t_Co=256
 "set term=xterm-256color
 if $TERM == 'linux'
@@ -321,15 +195,6 @@ autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 "map <F6> :CoffeeWatch<CR>
 autocmd FileType coffee map <buffer> <F5> :CoffeeRun<CR>
 autocmd FileType coffee map <buffer> <F6> :CoffeeWatch<CR>
-
-" Enable omni completion.
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-"autocmd BufWritePost,FileWritePost *.coffee :silent !coffee -b -c <afile>
-
 
 set nohlsearch
 
@@ -420,6 +285,7 @@ au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 " not working as I expected, override other filetypes
 au FileType clojure nmap <CR> cpp
 au FileType clojure nmap <C-]> ]<C-d>
+au FileType clojure nmap <F1> <S-k>
 
 
 " python
@@ -463,3 +329,7 @@ autocmd BufWritePre *.js Neoformat
 
 "au BufWrite * :Autoformat
 noremap <F3> :Autoformat<CR>
+
+"let g:clj_fmt_autosave = 0
+let g:formatdef_cljfmt_node = '"cljfmt"'
+let g:formatters_clojure = ['cljfmt_node']
