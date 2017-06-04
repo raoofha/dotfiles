@@ -15,5 +15,6 @@ ln -fs ~/projects/dotfiles/xresources ~/.Xresources
 ln -fs ~/projects/dotfiles/inputrc ~/.inputrc
 ln -fs ~/projects/dotfiles/aria2.conf ~/.aria2/aria2.conf
 ln -fs ~/projects/dotfiles/user-dirs.dirs ~/.config/user-dirs.dirs
+ln -fs ~/projects/dotfiles/oh-my-zsh/custom ~/.oh-my-zsh/custom
 
 chmod +x ~/.bg_random.sh

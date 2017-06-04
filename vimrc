@@ -286,6 +286,7 @@ au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 au FileType clojure nmap <CR> cpp
 au FileType clojure nmap <C-]> ]<C-d>
 au FileType clojure nmap <F1> <S-k>
+au FileType clojure nmap <F5> :Eval (. js/location reload true)<CR>
 
 
 " python
