@@ -23,9 +23,8 @@ set secure "disable unsafe commands in your project-specific .vimrc files
 set visualbell t_vb=
 
 
-
 call plug#begin('~/.vim/bundle')
-Plug 'bling/vim-airline'
+"Plug 'bling/vim-airline'
 Plug 'scrooloose/syntastic'
 Plug 'kchmck/vim-coffee-script'
 "Plugin 'digitaltoad/vim-jade'
@@ -112,6 +111,13 @@ Plug 'Chiel92/vim-autoformat'
 
 Plug 'jeroenbourgois/vim-actionscript'
 
+"Plug 'bhurlow/vim-parinfer'
+
+"Plug 'bagrat/vim-workspace'
+"Plug 'mkitt/tabline.vim'
+"Plug 'webdevel/tabulous'
+Plug 'ap/vim-buftabline'
+
 call plug#end()
 
 " allow backspacing over everything in insert mode
@@ -149,7 +155,7 @@ set guicursor+=a:blinkon0
 map Q <Nop>
 
 " Disable K looking stuff up
-map K <Nop>
+"map K <Nop>
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
@@ -334,3 +340,8 @@ noremap <F3> :Autoformat<CR>
 "let g:clj_fmt_autosave = 0
 let g:formatdef_cljfmt_node = '"cljfmt"'
 let g:formatters_clojure = ['cljfmt_node']
+
+hi BufTabLineHidden ctermfg=White ctermbg=Black
+hi BufTabLineFill ctermbg=Black
+hi BufTabLineCurrent ctermfg=Black ctermbg=White
+let g:buftabline_indicators=1
