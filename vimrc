@@ -106,7 +106,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 "Plug 'venantius/vim-cljfmt'
 
-Plug 'sbdchd/neoformat'
+"Plug 'sbdchd/neoformat'
 
 Plug 'Chiel92/vim-autoformat'
 
@@ -323,9 +323,9 @@ endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
 
 
-autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --trailing-comma\ es5
-let g:neoformat_try_formatprg = 1
-autocmd BufWritePre *.js Neoformat
+"autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --trailing-comma\ es5
+"let g:neoformat_try_formatprg = 1
+"autocmd BufWritePre *.js Neoformat
 "autocmd BufWritePre,TextChanged,InsertLeave *.js Neoformat
 
 "au BufWrite * :Autoformat

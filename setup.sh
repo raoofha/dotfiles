@@ -16,5 +16,6 @@ ln -fs ~/projects/dotfiles/inputrc ~/.inputrc
 ln -fs ~/projects/dotfiles/aria2.conf ~/.aria2/aria2.conf
 ln -fs ~/projects/dotfiles/user-dirs.dirs ~/.config/user-dirs.dirs
 ln -fs ~/projects/dotfiles/oh-my-zsh/custom ~/.oh-my-zsh/custom
+ln -fs ~/projects/dotfiles/youtube-dl.conf ~/.config/youtube-dl/config
 
 chmod +x ~/.bg_random.sh
