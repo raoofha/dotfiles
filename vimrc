@@ -21,6 +21,7 @@ set exrc "allows for per-project configuration files
 set secure "disable unsafe commands in your project-specific .vimrc files
 
 set visualbell t_vb=
+let g:netrw_banner = 0
 
 
 call plug#begin('~/.vim/bundle')
@@ -117,6 +118,7 @@ Plug 'jeroenbourgois/vim-actionscript'
 "Plug 'mkitt/tabline.vim'
 "Plug 'webdevel/tabulous'
 Plug 'ap/vim-buftabline'
+Plug 'jceb/vim-orgmode'
 
 call plug#end()
 

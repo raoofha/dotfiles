@@ -1,9 +1,10 @@
 (require 'package)
 
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
-(add-to-list 'load-path "~/.emacs.d/otherpackage")
+(add-to-list 'load-path "~/.emacs.d/other-packages")
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/custom-themes")
 
 (setq package-enable-at-startup nil)
 (package-initialize)
@@ -60,13 +61,15 @@
     ;quack
     ;scala-mode
     ;sanityinc-tomorrow-bright
-    ;color-theme-sanityinc-tomorrow
     ;ensime
     haskell-mode
     elm-mode
     ;powerline
     flycheck
     ein
+    base16-theme
+    color-theme-sanityinc-tomorrow
+    cyberpunk-theme
     ))
 
 
@@ -80,13 +83,41 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
+(setq-default mode-line-format nil) ; turn off status line
+(blink-cursor-mode 0)
+;(setq x-select-enable-primary t)
+;(setq x-select-enable-clipboard t)
+
+(setq make-backup-files nil) ; stop creating backup~ files
+(setq auto-save-default nil) ; stop creating #autosave# files
+;(setq backup-directory-alist '(("" . "/tmp/emacs-backup")))
+
+;(setq base16-theme-256-color-source "terminal")
+;(setq base16-theme-256-color-source "colors")
+;(setq base16-theme-256-color-source "base16-shell")
+;(load-theme 'base16-bright t)
+;(load-theme 'base16-3024 t)
+;(load-theme 'base16-irblack t)
+;(load-theme 'base16-isotope t)
+;(load-theme 'base16-macintosh t)
+;(load-theme 'base16-pop t)
+;(load-theme 'cyberpunk t)
+(load-theme 'sanityinc-tomorrow-bright t)
 
 ;(load "evil-noautochdir.el")
 (require 'evil-noautochdir)
 
 (global-linum-mode t)
-(setq linum-format "%d ")
+; add a space after linenumber
+;(setq linum-format "%d ")
 ;(setq linum-format "%d\u2502")
+;(setq linum-format "%7d ")
+;(setq linum-format 'dynamic)
+(defadvice linum-update-window (around linum-dynamic activate)
+  (let* ((w (length (number-to-string
+                     (count-lines (point-min) (point-max)))))
+         (linum-format (concat "%" (number-to-string w) "d ")))
+    ad-do-it))
 
 ; unbind C-w in evil
 ;(eval-after-load "evil-maps"
@@ -100,13 +131,6 @@
 (global-set-key (kbd "<C-S-tab>") 'previous-buffer)
 (global-set-key (kbd "<C-iso-lefttab>") 'previous-buffer)
 
-;(global-set-key (kbd "C-w") 'kill-buffer)
-
-(global-set-key (kbd "C-j") 'evil-window-down)
-(global-set-key (kbd "C-k") 'evil-window-up)
-(global-set-key (kbd "C-h") 'evil-window-left)
-(global-set-key (kbd "C-l") 'evil-window-right)
-
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-q") 'evil-quit)
 ;(global-unset-key (kbd "C-w"))
@@ -117,6 +141,19 @@
                  evil-insert-state-map
                  evil-emacs-state-map))
     (define-key (eval map) "\C-w" 'evil-delete-buffer)))
+(eval-after-load "evil"
+  '(progn
+     (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+     (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+     (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+     (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)))
+
+(global-set-key (kbd "<C-up>") 'shrink-window)
+(global-set-key (kbd "<C-down>") 'enlarge-window)
+(global-set-key (kbd "<C-left>") 'shrink-window-horizontally)
+(global-set-key (kbd "<C-right>") 'enlarge-window-horizontally)
+
+
 
 (set-default 'truncate-lines t)
 (savehist-mode 1)
@@ -149,16 +186,27 @@
 ;(load-theme 'sanityinc-tomorrow-bright)
 ;(require 'sanityinc-tomorrow-bright)
 ;(require 'color-theme-sanityinc-tomorrow)
+
+;(powerline-default-theme)
+(setq vc-follow-symlinks nil)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+;; store all backup and autosave files in the tmp dir
+;(setq backup-directory-alist
+      ;`((".*" . ,temporary-file-directory)))
+;(setq auto-save-file-name-transforms
+      ;`((".*" ,temporary-file-directory t)))
+
+;(setq noautochdir t) ; wrong
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (sanityinc-tomorrow-bright)))
- '(custom-safe-themes
-   (quote
-    ("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
- '(inhibit-startup-screen t))
+ '(default-frame-alist
+    (quote
+     ((vertical-scroll-bars)
+      (left-fringe . 0)
+      (right-fringe . 0)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -166,13 +214,7 @@
  ;; If there is more than one, they won't work right.
  )
 
-;(powerline-default-theme)
-(setq vc-follow-symlinks nil)
-(add-hook 'after-init-hook #'global-flycheck-mode)
-;; store all backup and autosave files in the tmp dir
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
-
-;(setq noautochdir t) ; wrong
+(setq cider-cljs-lein-repl
+      "(do (require 'figwheel-sidecar.repl-api)
+           (figwheel-sidecar.repl-api/start-figwheel!)
+           (figwheel-sidecar.repl-api/cljs-repl))")
