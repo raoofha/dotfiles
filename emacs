@@ -4,7 +4,8 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 (add-to-list 'load-path "~/.emacs.d/other-packages")
-;(add-to-list 'custom-theme-load-path "~/.emacs.d/custom-themes")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+
 
 (setq package-enable-at-startup nil)
 (package-initialize)
@@ -70,6 +71,12 @@
     base16-theme
     color-theme-sanityinc-tomorrow
     cyberpunk-theme
+    ;tabbar
+    helm
+    xclip
+    ;distinguished-theme
+    hydra
+    elpy
     ))
 
 
@@ -85,12 +92,21 @@
 (menu-bar-mode -1)
 (setq-default mode-line-format nil) ; turn off status line
 (blink-cursor-mode 0)
+(setq visible-cursor nil)
 ;(setq x-select-enable-primary t)
 ;(setq x-select-enable-clipboard t)
+;(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+;(setq interprogram-cut-function 'x-select-text)
+(xclip-mode 1)
 
-(setq make-backup-files nil) ; stop creating backup~ files
+(setq completion-cycle-threshold t)
+
+;(setq make-backup-files nil) ; stop creating backup~ files
 (setq auto-save-default nil) ; stop creating #autosave# files
-;(setq backup-directory-alist '(("" . "/tmp/emacs-backup")))
+(setq backup-directory-alist '(("" . "/tmp/emacs-backup")))
+
+(setq custom-theme-directory "~/.emacs.d/themes")
+(setq custom-safe-themes t)
 
 ;(setq base16-theme-256-color-source "terminal")
 ;(setq base16-theme-256-color-source "colors")
@@ -102,7 +118,11 @@
 ;(load-theme 'base16-macintosh t)
 ;(load-theme 'base16-pop t)
 ;(load-theme 'cyberpunk t)
-(load-theme 'sanityinc-tomorrow-bright t)
+;(load-theme 'sanityinc-tomorrow-bright t)
+;(load-theme 'distinguished t)
+;(load-theme 'tomorrow-night-bright t)
+;(load-theme 'sunburst t)
+(load-theme 'blacks t)
 
 ;(load "evil-noautochdir.el")
 (require 'evil-noautochdir)
@@ -154,7 +174,6 @@
 (global-set-key (kbd "<C-right>") 'enlarge-window-horizontally)
 
 
-
 (set-default 'truncate-lines t)
 (savehist-mode 1)
 (setq scroll-step            1
@@ -202,11 +221,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(ansi-color-names-vector
+   ["#000000" "#fb0120" "#a1c659" "#fda331" "#6fb3d2" "#d381c3" "#6fb3d2" "#e0e0e0"])
  '(default-frame-alist
     (quote
      ((vertical-scroll-bars)
       (left-fringe . 0)
-      (right-fringe . 0)))))
+      (right-fringe . 0))))
+ '(package-selected-packages
+   (quote
+    (xclip tabbar rainbow-delimiters projectile paredit magit jbeans-theme helm haskell-mode flycheck exwm evil-visual-mark-mode elm-mode ein cyberpunk-theme color-theme-sanityinc-tomorrow cider base16-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -218,3 +244,66 @@
       "(do (require 'figwheel-sidecar.repl-api)
            (figwheel-sidecar.repl-api/start-figwheel!)
            (figwheel-sidecar.repl-api/cljs-repl))")
+
+
+;;; <esc quits>
+(defun minibuffer-keyboard-quit ()
+  "Abort recursive edit.
+In Delete Selection mode, if the mark is active, just deactivate it;
+then it takes a second \\[keyboard-quit] to abort the minibuffer."
+  (interactive)
+  (if (and delete-selection-mode transient-mark-mode mark-active)
+      (setq deactivate-mark  t)
+    (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
+    (abort-recursive-edit)))
+(define-key evil-normal-state-map [escape] 'keyboard-quit)
+(define-key evil-visual-state-map [escape] 'keyboard-quit)
+(define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+;;; </esc quits>
+
+;;; <vim binding for helm>
+(defhydra helm-like-unite ()
+  "vim movement"
+  ("?" helm-help "help")
+  ("q" keyboard-escape-quit "exit")
+  ("<escape>" keyboard-escape-quit "exit")
+  ("<SPC>" helm-toggle-visible-mark "mark")
+  ("a" helm-toggle-all-marks "(un)mark all")
+  ;; not sure if there's a better way to do this
+  ;("/" (lambda () (interactive) (execute-kbd-macro [?\C-s])) "search")
+  ("/" nil "search")
+  ("v" helm-execute-persistent-action)
+  ("gg" helm-beginning-of-buffer "top")
+  ("G" helm-end-of-buffer "bottom")
+  ("h" helm-previous-source)
+  ("j" helm-next-line "down")
+  ("k" helm-previous-line "up")
+  ("l" helm-next-source)
+  ("i" nil "cancel"))
+;; to escape
+(with-eval-after-load 'helm
+  (define-key helm-map (kbd "<escape>") 'helm-like-unite/body))
+;; or with key-chord.el; suggested by ReneFroger
+;(key-chord-define minibuffer-local-map "jk" 'helm-like-unite/body)
+
+(defun helm-in-vim-mode ()
+  "helm in vim mode"
+  (interactive)
+  (helm-find-files) 
+  ;(helm-like-unite/body)
+  (execute-kbd-macro (kbd "<escape>"))
+  )
+
+;(global-set-key (kbd "<f9>") 'helm-buffers-list)
+;(global-set-key (kbd "<f9>") 'helm-mini)
+(global-set-key (kbd "<f9>") 'helm-find-files)
+;(global-set-key (kbd "<f9>") 'helm-in-vim-mode)
+(global-set-key (kbd "<S-f9>") 'helm-mini)
+
+;;; </vim binding for helm>
+
+(elpy-enable)

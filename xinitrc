@@ -12,6 +12,7 @@ xmodmap -e "keysym Menu = Hyper_L" &
 # turn off the beep sound
 xset b off
 
+export QT_QPA_PLATFORMTHEME=gtk2
 
 
 exec dbus-launch i3

@@ -3,9 +3,9 @@
 set nocompatible
 
 "set nowritebackup              " dangerous
-"set backupcopy=yes
-set backup
-set swapfile
+set backupcopy=yes
+"set backup
+"set swapfile
 set backupdir=/tmp
 set directory=/tmp " Don't clutter my dirs up with swp and tmp files
 
@@ -22,6 +22,7 @@ set secure "disable unsafe commands in your project-specific .vimrc files
 
 set visualbell t_vb=
 let g:netrw_banner = 0
+set arabicshape!
 
 
 call plug#begin('~/.vim/bundle')
@@ -120,6 +121,9 @@ Plug 'jeroenbourgois/vim-actionscript'
 Plug 'ap/vim-buftabline'
 Plug 'jceb/vim-orgmode'
 
+"Plug '~/projects/replwrap'
+Plug 'vim-scripts/dbext.vim'
+
 call plug#end()
 
 " allow backspacing over everything in insert mode
@@ -134,6 +138,7 @@ set smartcase
 set number
 set nowrap
 set clipboard=unnamedplus
+"set clipboard=unnamed
 set hidden
 set autoindent		" always set autoindenting on
 "set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
@@ -169,10 +174,13 @@ map <C-l> <esc>:wincmd l<CR>
 map <C-h> <esc>:wincmd h<CR>
 
 " Switch to alternate file
-map <ESC>[27;5;9~ :bnext<cr>
-map <ESC>[27;6;9~ :bprevious<cr>
-"map <C-Tab> :bnext<cr>
-"map <C-S-Tab> :bprevious<cr>
+if has("nvim") 
+  map <C-Tab> :bnext<cr>
+  map <C-S-Tab> :bprevious<cr>
+else
+  map <ESC>[27;5;9~ :bnext<cr>
+  map <ESC>[27;6;9~ :bprevious<cr>
+endif
 
 map <C-w> <esc>:bd<CR>
 imap <C-w> <esc>:bd<CR>
@@ -291,16 +299,19 @@ au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 
 " not working as I expected, override other filetypes
-au FileType clojure nmap <CR> cpp
-au FileType clojure nmap <C-]> ]<C-d>
+"au FileType clojure nmap <CR> <Plug>FireplaceCountPrint j
+au FileType clojure nmap <space> <Plug>FireplaceCountPrint
+au FileType clojure nmap <s-space> :%Eval<cr>
+au FileType clojure nmap <C-]> <Plug>FireplaceDjump
 au FileType clojure nmap <F1> <S-k>
 au FileType clojure nmap <F5> :Eval (. js/location reload true)<CR>
+
+au BufNewFile,BufRead *.boot set filetype=clojure
 
 
 " python
 let g:jedi#goto_definitions_command = "<C-]>"
 
-au BufNewFile,BufRead *.boot set filetype=clojure
 
 
 let g:syntastic_javascript_checkers = ['eslint']
@@ -347,3 +358,16 @@ hi BufTabLineHidden ctermfg=White ctermbg=Black
 hi BufTabLineFill ctermbg=Black
 hi BufTabLineCurrent ctermfg=Black ctermbg=White
 let g:buftabline_indicators=1
+
+
+if has("nvim")
+  set laststatus=0
+  tnoremap <Esc> <C-\><C-n>
+endif
+
+if has('win32')
+  set guifont=Consolas:h14:cANSI:qDRAFT
+  if !has('gui_running')
+    colorscheme pablo
+  endif
+endif

@@ -1,0 +1,20 @@
+MainWindow #searchPane #translateLine, MainWindow #searchPane #wordList
+{
+  background-color: black;
+  /*color: white;*/
+  color : #727983
+}
+MainWindow #translateLine, ScanPopup #translateLine, MainWindow #wordList, MainWindow #dictsPane #dictsList, MainWindow #historyPane #historyList
+{
+  background-color: black;
+  /*color: white;*/
+  color : #727983
+}
+#navToolbar GroupComboBox {
+  background-color: black;
+  color : #727983
+}
+
+#frame {
+  border: 0; 
+}

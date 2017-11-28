@@ -15,11 +15,21 @@ sub-fuzziness=2
 #expand=:::::1
 # Set font encoding.
 #subfont-encoding=unicode
+#subfont=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+#subfont="IPAUIGothic,IPA UIゴシック"
+#subfont="DejaVu Sans"
+#subfont="Source Han Sans,源ノ角ゴシック,Source Han Sans Normal,源ノ角ゴシック Normal"
+#subfont="Ume UI Gothic O5,梅UIゴシックO5"
 
 # Set subtitle file encoding.
 #unicode=yes
 #subcp=enca:fa:utf8
 #subcp=cp1256
-utf8=yes
+#utf8=yes
 
-#subcp=enca:fa:cp1254
+#subcp='windows-1256'
+#subcp=enca:fa:cp1256
+subcp=enca:__:cp1256
+#subcp=shift-jis
+
+slang=jpn,eng,fas
