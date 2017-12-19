@@ -32,4 +32,5 @@ sub-fuzziness=2
 subcp=enca:__:cp1256
 #subcp=shift-jis
 
-slang=jpn,eng,fas
+#slang=jpn,eng,fas
+slang=eng,fas

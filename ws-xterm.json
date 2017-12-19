@@ -3,10 +3,11 @@
     "percent": 1,
     "type": "con",
     "nodes": [{
+            "name": "xterm",
             "percent": 0.5,
             "type": "con",
             "swallows": [{
-                "class": "^URxvt$"
+                "class": "^XTerm$"
             }]
         },
         {
@@ -18,9 +19,10 @@
                     "percent": 0.5,
                     "type": "con",
                     "nodes": [{
+                            "name": "xterm",
                             "percent": 0.8,
                             "swallows": [{
-                                "class": "^URxvt$"
+                                "class": "^XTerm$"
                             }],
                             "type": "con"
                         },
@@ -29,16 +31,18 @@
                             "percent": 0.2,
                             "type": "con",
                             "nodes": [{
+                                    "name": "xterm",
                                     "percent": 0.5,
                                     "swallows": [{
-                                        "class": "^URxvt$"
+                                        "class": "^XTerm$"
                                     }],
                                     "type": "con"
                                 },
                                 {
+                                    "name": "xterm",
                                     "percent": 0.5,
                                     "swallows": [{
-                                        "class": "^URxvt$"
+                                        "class": "^XTerm$"
                                     }],
                                     "type": "con"
                                 }
@@ -47,6 +51,7 @@
                     ]
                 },
                 {
+                    "name": "chromium",
                     "percent": 0.5,
                     "swallows": [{
                         "class": "^Chromium$"
