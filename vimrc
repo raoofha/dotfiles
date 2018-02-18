@@ -42,7 +42,12 @@ Plug 'leafgarland/typescript-vim'
 Plug 'jvirtanen/vim-octave'
 
 "Plugin 'guns/vim-clojure-static'
+
 Plug 'tpope/vim-fireplace'
+"Plug 'jebberjeb/clojure-socketrepl.nvim'
+"Plug '~/projects/replwrap'
+"Plug '~/.vim/bundle/replwrap'
+
 "Plugin 'vim-scripts/paredit.vim'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 "Plugin 'guns/vim-sexp'
@@ -98,7 +103,7 @@ Plug 'davidhalter/jedi-vim'
 
 Plug 'JBakamovic/yavide'
 
-Plug 'magicalbanana/vim-sql-syntax'
+"Plug 'magicalbanana/vim-sql-syntax'
 
 Plug 'reasonml/vim-reason-loader'
 Plug 'MartinLafreniere/vim-PairTools'
@@ -121,8 +126,10 @@ Plug 'jeroenbourgois/vim-actionscript'
 Plug 'ap/vim-buftabline'
 Plug 'jceb/vim-orgmode'
 
-"Plug '~/projects/replwrap'
+
 Plug 'vim-scripts/dbext.vim'
+
+"Plug 'StanAngeloff/php.vim'
 
 call plug#end()
 
@@ -301,8 +308,8 @@ au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 " not working as I expected, override other filetypes
 "au FileType clojure nmap <CR> <Plug>FireplaceCountPrint j
 au FileType clojure nmap <space> <Plug>FireplaceCountPrint
-au FileType clojure nmap <s-space> :%Eval<cr>
-au FileType clojure nmap <C-]> <Plug>FireplaceDjump
+"au FileType clojure nmap <s-space> :%Eval<cr>
+"au FileType clojure nmap <C-]> <Plug>FireplaceDjump
 au FileType clojure nmap <F1> <S-k>
 au FileType clojure nmap <F5> :Eval (. js/location reload true)<CR>
 
@@ -353,6 +360,7 @@ noremap <F3> :Autoformat<CR>
 "let g:clj_fmt_autosave = 0
 let g:formatdef_cljfmt_node = '"cljfmt"'
 let g:formatters_clojure = ['cljfmt_node']
+"let g:formatters_edif = ['cljfmt_node']
 
 hi BufTabLineHidden ctermfg=White ctermbg=Black
 hi BufTabLineFill ctermbg=Black
@@ -371,3 +379,7 @@ if has('win32')
     colorscheme pablo
   endif
 endif
+
+
+autocmd BufNewFile,BufRead *.edn set syntax=clojure
+autocmd BufNewFile,BufRead *.edn set filetype=clojure

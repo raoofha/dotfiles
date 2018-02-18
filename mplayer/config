@@ -1,7 +1,8 @@
 # Write your default config options here!
 
 #vo=fbdev2,fbdev,
-vo=x11,xv
+#vo=x11,xv
+vo=vdpau,x11,xv
 fs=true
 zoom=true
 xy=1280

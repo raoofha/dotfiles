@@ -35,7 +35,8 @@
 
     ;; integration with a Clojure REPL
     ;; https://github.com/clojure-emacs/cider
-    cider
+    ;cider
+    inf-clojure
     ;;ac-cider
     ;; allow ido usage in as many contexts as possible. see
     ;; customizations/navigation.el line 23 for a description
@@ -48,26 +49,26 @@
     ;smex
 
     ;; project navigation
-    projectile
+    ;projectile
 
     ;; colorful parenthesis matching
-    rainbow-delimiters
+    ;rainbow-delimiters
 
     ;; edit html tags like sexps
     ;tagedit
 
     ;; git integration
-    magit
+    ;magit
     ;; for scheme
     ;quack
     ;scala-mode
     ;sanityinc-tomorrow-bright
     ;ensime
-    haskell-mode
-    elm-mode
+    ;haskell-mode
+    ;elm-mode
     ;powerline
-    flycheck
-    ein
+    ;flycheck
+    ;ein
     base16-theme
     color-theme-sanityinc-tomorrow
     cyberpunk-theme
@@ -76,7 +77,7 @@
     xclip
     ;distinguished-theme
     hydra
-    elpy
+    ;elpy
     ))
 
 
@@ -85,6 +86,10 @@
 (dolist (p my-packages)
   (unless (package-installed-p p)
         (package-install p)))
+
+
+(add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
+
 
 (evil-mode 1)
 (tool-bar-mode -1)
@@ -180,12 +185,15 @@
       scroll-conservatively  10000)
 
 ;(define-key evil-normal-state-map (kbd "return") nil)
-(evil-define-key 'normal clojure-mode-map (kbd "RET") 'cider-eval-last-sexp-to-repl)
+;(evil-define-key 'normal clojure-mode-map (kbd "RET") 'cider-eval-last-sexp-to-repl)
+(evil-define-key 'normal inf-clojure-minor-mode-map (kbd "SPC") 'inf-clojure-eval-last-sexp)
 
 ;(with-eval-after-load 'evil-maps
 ;  (define-key evil-normal-state-map (kbd "o") 'evil-end-of-line))
 
 
+(setq evil-move-cursor-back nil)
+;(setq evil-move-beyond-eol t)
 
 
 

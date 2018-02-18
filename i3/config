@@ -209,7 +209,7 @@ workspace_layout tabbed
 #assign [class="(?i)chromium"] 1
 #assign [class="(?i)vlc"] 2
 #assign [class="(?i)mplayer"] 2
-assign [class="^Goldendict$"] 4
+assign [class="^GoldenDict$"] 4
 
 exec ~/.bg_random.sh
 #exec chromium --enable-remote-extensions & goldendict
