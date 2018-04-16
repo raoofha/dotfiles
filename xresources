@@ -1,10 +1,6 @@
 *selectToClipboard: true
 *metaSendsEscape: true
 
-!*vt100.translations: #override \n\
-xterm.vt100.translations: #override \n\
-    Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n\
-    Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n 
 !*.transparent: true
 !URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
 !*.shading: 20 
@@ -31,7 +27,9 @@ URxvt.letterSpace: -1
 !*background: #101010
 *background: #000000
 !*foreground: #d0d0d0
-*foreground: #ffffff
+!*foreground: #ffffff
+!*foreground: #727983
+*foreground: #c8c8c8
 *cursorColor: #d0d0d0
 !*color0: #101010
 *color0: #000000
@@ -133,3 +131,9 @@ URxvt.perl-ext-common: selection-to-clipboard,clipboard
 !URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.keysym.Shift-Insert: perl:clipboard:paste
 URxvt.perl-lib: /home/raoof/projects/dotfiles/urxvt
+
+
+!*vt100.translations: #override \n\
+xterm.vt100.translations: #override \n\
+    Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n\
+    Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n 

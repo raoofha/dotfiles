@@ -181,12 +181,17 @@ map <C-l> <esc>:wincmd l<CR>
 map <C-h> <esc>:wincmd h<CR>
 
 " Switch to alternate file
-if has("nvim") 
+if has("nvim") || has('gui_running')
   map <C-Tab> :bnext<cr>
   map <C-S-Tab> :bprevious<cr>
 else
-  map <ESC>[27;5;9~ :bnext<cr>
-  map <ESC>[27;6;9~ :bprevious<cr>
+  "map <ESC>[27;5;9~ :bnext<cr>
+  "map <ESC>[27;6;9~ :bprevious<cr>
+  set timeout timeoutlen=1000 ttimeoutlen=100
+  set <F13>=[27;5;9~
+  set <F14>=[27;6;9~
+  nnoremap <F13> :bnext<cr>
+  nnoremap <F14> :bprevious<cr>
 endif
 
 map <C-w> <esc>:bd<CR>
@@ -216,8 +221,8 @@ autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 "autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent
 "map <F5> :CoffeeRun<CR>
 "map <F6> :CoffeeWatch<CR>
-autocmd FileType coffee map <buffer> <F5> :CoffeeRun<CR>
-autocmd FileType coffee map <buffer> <F6> :CoffeeWatch<CR>
+"autocmd FileType coffee map <buffer> <F5> :CoffeeRun<CR>
+"autocmd FileType coffee map <buffer> <F6> :CoffeeWatch<CR>
 
 set nohlsearch
 
@@ -311,7 +316,18 @@ au FileType clojure nmap <space> <Plug>FireplaceCountPrint
 "au FileType clojure nmap <s-space> :%Eval<cr>
 "au FileType clojure nmap <C-]> <Plug>FireplaceDjump
 au FileType clojure nmap <F1> <S-k>
-au FileType clojure nmap <F5> :Eval (. js/location reload true)<CR>
+"au FileType clojure nmap <F5> :Eval (. js/location reload true)<CR>
+
+"au FileType clojure,html,javascript,css noremap <silent> <F5> :call system('/usr/bin/curl -H "Content-Type: text/plain" http://localhost:3000/hotreload/' . expand("%:p") . " -d " . shellescape(join(getline(1,'$'), "\n")) . " > /dev/null")<cr>
+"au TextChanged,TextChangedI *.cljs,*.js silent call system('/usr/bin/curl -H "Content-Type: text/plain" http://localhost:3000/hotreload/' . expand("%:p") . " -d " . shellescape(join(getline(1,'$'), "\n")) . " > /dev/null")
+func Hotreload()
+  silent call system('/usr/bin/curl -H "Content-Type: text/plain" http://localhost:3000/hotreload/' . expand("%:p") . " -d " . shellescape(join(getline(1,'$'), "\n")) . " > /dev/null")
+endfunc
+au FileType clojure,html,javascript,css noremap <F5> :call Hotreload()<cr>
+"au TextChanged,TextChangedI *.cljs,*.js call Hotreload()
+
+"map <F5> :!reload-browser chromium<cr>
+"map <S-F5> :!reload-browser chromium true<cr>
 
 au BufNewFile,BufRead *.boot set filetype=clojure
 
@@ -378,8 +394,13 @@ if has('win32')
   if !has('gui_running')
     colorscheme pablo
   endif
+else
+  set guifont=DejaVu\ Sans\ Mono\ 11
 endif
 
 
 autocmd BufNewFile,BufRead *.edn set syntax=clojure
 autocmd BufNewFile,BufRead *.edn set filetype=clojure
+
+
+au FileType cpp noremap <silent> <F5> :call system('urxvt-eval ./scripts/brun &')<cr>

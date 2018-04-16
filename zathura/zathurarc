@@ -1,0 +1,14 @@
+set recolor true
+set recolor-darkcolor  "#727983"
+set recolor-lightcolor "#000000"
+
+set window-title-basename "true"
+set selection-clipboard "clipboard"
+set selection-notification false
+
+map = zoom in
+#map <Esc> quit
+map <C-w> quit
+
+set guioptions "v"
+set smooth-scroll true

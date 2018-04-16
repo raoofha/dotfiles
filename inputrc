@@ -1,4 +1,5 @@
 set editing-mode vi
 set keymap vi-insert
+set keyseq-timeout 50
 # these are for vi-insert mode
 Control-l: clear-screen 

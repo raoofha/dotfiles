@@ -10,25 +10,25 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-;(add-to-list 'load-path "~/.emacs.d/evil") ; only without ELPA/el-get
-;    (require 'evil)
-;    (evil-mode 1)
+;;(add-to-list 'load-path "~/.emacs.d/evil") ; only without ELPA/el-get
+;;    (require 'evil)
+;;    (evil-mode 1)
 
-; install my own packages
-;(defvar my-packages '(evil
-;		      clojure-mode
-;		      cider))
+;; install my own packages
+;;(defvar my-packages '(evil
+;;		      clojure-mode
+;;		      cider))
 
 (defvar my-packages
   '(
     evil
     ;; makes handling lisp expressions much, much easier
     ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
-    paredit
+    ;paredit
 
     ;; key bindings and code colorization for Clojure
     ;; https://github.com/clojure-emacs/clojure-mode
-    clojure-mode
+    ;clojure-mode
 
     ;; extra syntax highlighting for clojure
     ;clojure-mode-extra-font-locking
@@ -36,7 +36,7 @@
     ;; integration with a Clojure REPL
     ;; https://github.com/clojure-emacs/cider
     ;cider
-    inf-clojure
+    ;inf-clojure
     ;;ac-cider
     ;; allow ido usage in as many contexts as possible. see
     ;; customizations/navigation.el line 23 for a description
@@ -69,15 +69,17 @@
     ;powerline
     ;flycheck
     ;ein
-    base16-theme
-    color-theme-sanityinc-tomorrow
-    cyberpunk-theme
+    ;base16-theme
+    ;color-theme-sanityinc-tomorrow
+    ;cyberpunk-theme
     ;tabbar
-    helm
+    ;helm
     xclip
     ;distinguished-theme
-    hydra
+    ;hydra
     ;elpy
+    ;irony
+    ;company-irony
     ))
 
 
@@ -88,7 +90,7 @@
         (package-install p)))
 
 
-(add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
+;(add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
 
 
 (evil-mode 1)
@@ -151,10 +153,13 @@
 ;		 evil-emacs-state-map))
 ;        (define-key (eval map) "\C-w" nil)))
 
-
 (global-set-key (kbd "<C-tab>") 'next-buffer)
 (global-set-key (kbd "<C-S-tab>") 'previous-buffer)
 (global-set-key (kbd "<C-iso-lefttab>") 'previous-buffer)
+(global-set-key (kbd "<C-iso-left-tab>") 'previous-buffer)
+(global-set-key (kbd "M-[ 2 7 ; 5") 'next-buffer)
+(global-set-key (kbd "M-[ 2 7 ; 6") 'previous-buffer)
+
 
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-q") 'evil-quit)
@@ -191,8 +196,8 @@
 ;(with-eval-after-load 'evil-maps
 ;  (define-key evil-normal-state-map (kbd "o") 'evil-end-of-line))
 
-
-(setq evil-move-cursor-back nil)
+; dont move curser back after going to normal mode
+;(setq evil-move-cursor-back nil)
 ;(setq evil-move-beyond-eol t)
 
 
@@ -201,13 +206,13 @@
 ; scheme config
 ;------------------------------------------------------
 ;;; Always do syntax highlighting
-(global-font-lock-mode 1)
-;;; Also highlight parens
-(setq show-paren-delay 0
-      show-paren-style 'parenthesis)
-(show-paren-mode 1)
-;;; This is the binary name of my scheme implementation
-(setq scheme-program-name "scheme")
+;(global-font-lock-mode 1)
+;;;; Also highlight parens
+;(setq show-paren-delay 0
+      ;show-paren-style 'parenthesis)
+;(show-paren-mode 1)
+;;;; This is the binary name of my scheme implementation
+;(setq scheme-program-name "scheme")
 ;------------------------------------------------------
 
 ;(load-theme 'sanityinc-tomorrow-bright)
@@ -216,7 +221,7 @@
 
 ;(powerline-default-theme)
 (setq vc-follow-symlinks nil)
-(add-hook 'after-init-hook #'global-flycheck-mode)
+;(add-hook 'after-init-hook #'global-flycheck-mode)
 ;; store all backup and autosave files in the tmp dir
 ;(setq backup-directory-alist
       ;`((".*" . ,temporary-file-directory)))
@@ -274,37 +279,37 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;;; </esc quits>
 
 ;;; <vim binding for helm>
-(defhydra helm-like-unite ()
-  "vim movement"
-  ("?" helm-help "help")
-  ("q" keyboard-escape-quit "exit")
-  ("<escape>" keyboard-escape-quit "exit")
-  ("<SPC>" helm-toggle-visible-mark "mark")
-  ("a" helm-toggle-all-marks "(un)mark all")
-  ;; not sure if there's a better way to do this
-  ;("/" (lambda () (interactive) (execute-kbd-macro [?\C-s])) "search")
-  ("/" nil "search")
-  ("v" helm-execute-persistent-action)
-  ("gg" helm-beginning-of-buffer "top")
-  ("G" helm-end-of-buffer "bottom")
-  ("h" helm-previous-source)
-  ("j" helm-next-line "down")
-  ("k" helm-previous-line "up")
-  ("l" helm-next-source)
-  ("i" nil "cancel"))
+;(defhydra helm-like-unite ()
+  ;"vim movement"
+  ;("?" helm-help "help")
+  ;("q" keyboard-escape-quit "exit")
+  ;("<escape>" keyboard-escape-quit "exit")
+  ;("<SPC>" helm-toggle-visible-mark "mark")
+  ;("a" helm-toggle-all-marks "(un)mark all")
+  ;;; not sure if there's a better way to do this
+  ;;("/" (lambda () (interactive) (execute-kbd-macro [?\C-s])) "search")
+  ;("/" nil "search")
+  ;("v" helm-execute-persistent-action)
+  ;("gg" helm-beginning-of-buffer "top")
+  ;("G" helm-end-of-buffer "bottom")
+  ;("h" helm-previous-source)
+  ;("j" helm-next-line "down")
+  ;("k" helm-previous-line "up")
+  ;("l" helm-next-source)
+  ;("i" nil "cancel"))
 ;; to escape
-(with-eval-after-load 'helm
-  (define-key helm-map (kbd "<escape>") 'helm-like-unite/body))
+;(with-eval-after-load 'helm
+;  (define-key helm-map (kbd "<escape>") 'helm-like-unite/body))
 ;; or with key-chord.el; suggested by ReneFroger
 ;(key-chord-define minibuffer-local-map "jk" 'helm-like-unite/body)
 
-(defun helm-in-vim-mode ()
-  "helm in vim mode"
-  (interactive)
-  (helm-find-files) 
-  ;(helm-like-unite/body)
-  (execute-kbd-macro (kbd "<escape>"))
-  )
+;(defun helm-in-vim-mode ()
+  ;"helm in vim mode"
+  ;(interactive)
+  ;(helm-find-files) 
+  ;;(helm-like-unite/body)
+  ;(execute-kbd-macro (kbd "<escape>"))
+  ;)
 
 ;(global-set-key (kbd "<f9>") 'helm-buffers-list)
 ;(global-set-key (kbd "<f9>") 'helm-mini)
@@ -314,4 +319,23 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 ;;; </vim binding for helm>
 
-(elpy-enable)
+;(elpy-enable)
+
+;(eval-after-load 'company
+;  '(add-to-list 'company-backends 'company-irony))
+
+(custom-set-faces
+ '(company-preview
+   ((t (:foreground "darkgray" :underline t))))
+ '(company-preview-common
+   ((t (:inherit company-preview))))
+ '(company-tooltip
+   ((t (:background "lightgray" :foreground "black"))))
+ '(company-tooltip-selection
+   ((t (:background "steelblue" :foreground "white"))))
+ '(company-tooltip-common
+   ((((type x)) (:inherit company-tooltip :weight bold))
+    (t (:inherit company-tooltip))))
+ '(company-tooltip-common-selection
+   ((((type x)) (:inherit company-tooltip-selection :weight bold))
+    (t (:inherit company-tooltip-selection)))))

@@ -19,5 +19,6 @@ ln -fs ~/projects/dotfiles/oh-my-zsh/custom ~/.oh-my-zsh/custom
 ln -fs ~/projects/dotfiles/youtube-dl.conf ~/.config/youtube-dl/config
 ln -fs ~/projects/dotfiles/emacs.d/themes ~/.emacs.d/themes
 ln -fs ~/projects/dotfiles/goldendict/qt-style.css ~/.goldendict/qt-style.css
+ln -fs ~/projects/dotfiles/zathura ~/.config/zathura
 
 chmod +x ~/.bg_random.sh

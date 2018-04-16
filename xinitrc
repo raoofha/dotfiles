@@ -14,6 +14,8 @@ xset b off
 
 export QT_QPA_PLATFORMTHEME=gtk2
 
+export PATH=$PATH:$HOME/.local/bin
+
 
 exec dbus-launch i3
 #exec ck-launch-session  i3
