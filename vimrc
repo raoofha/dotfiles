@@ -78,7 +78,11 @@ Plug 'derekwyatt/vim-sbt'
 Plug 'derekwyatt/vim-scala'
 "Plugin 'ensime/ensime-vim'
 
-Plug 'chriskempson/vim-tomorrow-theme'
+"Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'tpope/vim-vividchalk'
+Plug 'vim-scripts/vibrantink'
+Plug 'flazz/vim-colorschemes'
+"Plug 'felixhummel/setcolors.vim'
 
 Plug 'eagletmt/neco-ghc'
 Plug 'ervandew/supertab'
@@ -126,10 +130,12 @@ Plug 'jeroenbourgois/vim-actionscript'
 Plug 'ap/vim-buftabline'
 Plug 'jceb/vim-orgmode'
 
-
 Plug 'vim-scripts/dbext.vim'
 
 "Plug 'StanAngeloff/php.vim'
+
+Plug 'zah/nim.vim'
+Plug 'udalov/kotlin-vim'
 
 call plug#end()
 
@@ -403,4 +409,29 @@ autocmd BufNewFile,BufRead *.edn set syntax=clojure
 autocmd BufNewFile,BufRead *.edn set filetype=clojure
 
 
-au FileType cpp noremap <silent> <F5> :call system('urxvt-eval ./scripts/brun &')<cr>
+"au FileType cpp noremap <silent> <F5> :call system('urxvt-eval ./scripts/brun &')<cr>
+
+
+func Compile()
+  up
+  silent call system('urxvt-eval ./scripts/brun &')
+endfunc
+
+au FileType cpp,c noremap  <silent> <F5> :call Compile()<cr>
+au FileType cpp,c inoremap <silent> <F5> <esc>:call Compile()<cr>
+
+func BuildLib()
+  up
+  silent call system('./scripts/build_lib &')
+endfunc
+
+au FileType cpp,c noremap  <silent> <F4> :call BuildLib()<cr>
+au FileType cpp,c inoremap <silent> <F4> <esc>:call BuildLib()<cr>
+
+func UrxvtEval(str)
+  up
+  silent call system('urxvt-eval ' . a:str)
+endfunc
+
+au FileType nim noremap  <silent> <F5> :call Compile()<cr>
+au FileType nim inoremap <silent> <F5> <esc>:call Compile()<cr>
