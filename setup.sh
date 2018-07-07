@@ -21,4 +21,7 @@ ln -fs ~/projects/dotfiles/emacs.d/themes ~/.emacs.d/themes
 ln -fs ~/projects/dotfiles/goldendict/qt-style.css ~/.goldendict/qt-style.css
 ln -fs ~/projects/dotfiles/zathura ~/.config/zathura
 
+ln -fs ~/projects/dotfiles/mlterm/color ~/.mlterm/color
+ln -fs ~/projects/dotfiles/mlterm/main ~/.mlterm/main
+
 chmod +x ~/.bg_random.sh

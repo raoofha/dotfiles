@@ -35,3 +35,5 @@ subcp=enca:__:cp1256
 
 #slang=jpn,eng,fas
 slang=eng,fas
+
+sub-paths=sub

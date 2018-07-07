@@ -27,7 +27,7 @@ set arabicshape!
 
 call plug#begin('~/.vim/bundle')
 "Plug 'bling/vim-airline'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 Plug 'kchmck/vim-coffee-script'
 "Plugin 'digitaltoad/vim-jade'
 "Plugin 'nikvdp/ejs-syntax'
@@ -103,7 +103,7 @@ Plug 'raichoo/purescript-vim'
 "Plugin '/home/raoof/projects/colon.vim/.git'
 "Plugin 'jpalardy/vim-slime'
 
-Plug 'davidhalter/jedi-vim'
+"Plug 'davidhalter/jedi-vim'
 
 Plug 'JBakamovic/yavide'
 
@@ -112,7 +112,7 @@ Plug 'JBakamovic/yavide'
 Plug 'reasonml/vim-reason-loader'
 Plug 'MartinLafreniere/vim-PairTools'
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 "Plug 'venantius/vim-cljfmt'
 
@@ -136,6 +136,16 @@ Plug 'vim-scripts/dbext.vim'
 
 Plug 'zah/nim.vim'
 Plug 'udalov/kotlin-vim'
+
+"Plug 'nsf/gocode', { 'rtp': 'vim', 'do': './vim/symlink.sh' }
+"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+Plug 'calviken/vim-gdscript3'
+
+"Plug 'OmniSharp/omnisharp-vim'
+Plug 'rhysd/vim-crystal'
+
+Plug 'posva/vim-vue'
 
 call plug#end()
 
@@ -235,6 +245,9 @@ set nohlsearch
 "let g:syntastic_coffee_coffeelint_args = "--csv --file package.json"
 let g:syntastic_coffee_coffeelint_args = "--csv --file /home/raoof/.coffeescript/coffeelint.json"
 let g:syntastic_python_python_exec = '/usr/bin/python3'
+let g:syntastic_quiet_messages = { "type": "style" }
+
+
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 
@@ -250,10 +263,10 @@ au BufNewFile,BufRead *.ejs set filetype=html
 
 " http://www.stephendiehl.com/posts/vim_2016.html
 "-------------------------------------------------------
-map ,s :SyntasticToggleMode<CR>
+"map ,s :SyntasticToggleMode<CR>
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
@@ -384,9 +397,16 @@ let g:formatdef_cljfmt_node = '"cljfmt"'
 let g:formatters_clojure = ['cljfmt_node']
 "let g:formatters_edif = ['cljfmt_node']
 
-hi BufTabLineHidden ctermfg=White ctermbg=Black
+
+"let g:formatdef_prettier = '"prettier"'
+"let g:formatters_html = ['prettier']
+"let g:formatters_vue = ['prettier']
+
+hi BufTabLineHidden ctermbg=Black ctermfg=White 
 hi BufTabLineFill ctermbg=Black
-hi BufTabLineCurrent ctermfg=Black ctermbg=White
+"hi BufTabLineCurrent ctermfg=black ctermbg=white
+"hi BufTabLineCurrent ctermfg=white ctermbg=237
+hi BufTabLineCurrent ctermbg=white ctermfg=black
 let g:buftabline_indicators=1
 
 
@@ -412,17 +432,17 @@ autocmd BufNewFile,BufRead *.edn set filetype=clojure
 "au FileType cpp noremap <silent> <F5> :call system('urxvt-eval ./scripts/brun &')<cr>
 
 
-func Compile()
+func BuildRun()
   up
-  silent call system('urxvt-eval ./scripts/brun &')
+  silent call system('urxvt-eval "./scripts/build && ./scripts/run" &')
 endfunc
 
-au FileType cpp,c noremap  <silent> <F5> :call Compile()<cr>
-au FileType cpp,c inoremap <silent> <F5> <esc>:call Compile()<cr>
+au FileType nim,cpp,c,asm,fasm noremap  <silent> <F5> :call BuildRun()<cr>
+au FileType nim,cpp,c,asm,fasm inoremap <silent> <F5> <esc>:call BuildRun()<cr>
 
 func BuildLib()
   up
-  silent call system('./scripts/build_lib &')
+  silent call system('urxvt-eval ./scripts/build-lib &')
 endfunc
 
 au FileType cpp,c noremap  <silent> <F4> :call BuildLib()<cr>
@@ -433,5 +453,36 @@ func UrxvtEval(str)
   silent call system('urxvt-eval ' . a:str)
 endfunc
 
-au FileType nim noremap  <silent> <F5> :call Compile()<cr>
-au FileType nim inoremap <silent> <F5> <esc>:call Compile()<cr>
+
+
+" set cursor to thin line
+"let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+"let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+
+" set cursor to thin line
+"if has("autocmd")
+  "au VimEnter,InsertLeave * silent execute '!echo -ne "\e[2 q"' | redraw!
+  "au InsertEnter,InsertChange *
+"\ if v:insertmode == 'i' | 
+"\   silent execute '!echo -ne "\e[6 q"' | redraw! |
+"\ elseif v:insertmode == 'r' |
+"\   silent execute '!echo -ne "\e[4 q"' | redraw! |
+"\ endif
+"au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+"endif
+
+" highlight current line in insert mode
+"autocmd InsertEnter * set cul
+"autocmd InsertLeave * set nocul
+
+"set cul
+
+"set statusline+=%f
+"set laststatus=2
+hi StatusLine ctermbg=white ctermfg=233
+hi StatusLineNC ctermbg=white ctermfg=black
+hi VertSplit ctermbg=234 ctermfg=234
+
+
+au BufNewFile,BufRead *.fasm set filetype=fasm
+au BufNewFile,BufRead *.dream set filetype=clojure

@@ -12,3 +12,6 @@ map <C-w> quit
 
 set guioptions "v"
 set smooth-scroll true
+
+#set adjust-open "best-fit" 
+map f feedkeys "300zz"
