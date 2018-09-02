@@ -109,10 +109,10 @@ Plug 'JBakamovic/yavide'
 
 "Plug 'magicalbanana/vim-sql-syntax'
 
-Plug 'reasonml/vim-reason-loader'
+"Plug 'reasonml/vim-reason-loader'
 Plug 'MartinLafreniere/vim-PairTools'
 
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 
 "Plug 'venantius/vim-cljfmt'
 
@@ -146,6 +146,30 @@ Plug 'calviken/vim-gdscript3'
 Plug 'rhysd/vim-crystal'
 
 Plug 'posva/vim-vue'
+
+"Plug 'reasonml-editor/vim-reason-plus'
+"Plug 'autozimu/LanguageClient-neovim', {
+    "\ 'branch': 'next',
+    "\ 'do': 'bash install.sh',
+    "\ }
+
+"if has('nvim')
+  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+  "Plug 'Shougo/deoplete.nvim'
+  "Plug 'roxma/nvim-yarp'
+  "Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+
+Plug 'artur-shaik/vim-javacomplete2'
+
+Plug 'rust-lang/rust.vim'
+
+"Plug 'w0rp/ale'
+
+"Plug 'zchee/deoplete-go', { 'do': 'make'}
+
+Plug 'skywind3000/asyncrun.vim'
 
 call plug#end()
 
@@ -279,7 +303,8 @@ map <silent> ts :GhcModSplitFunCase<CR>
 map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
 
-let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+"let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+let g:SuperTabDefaultCompletionType = '<c-n>'
 
 if has("gui_running")
   imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
@@ -359,23 +384,23 @@ let g:jedi#goto_definitions_command = "<C-]>"
 let g:syntastic_javascript_checkers = ['eslint']
 
 " reason
-let g:syntastic_reason_checkers=['merlin']
-autocmd FileType reason let g:pairtools_reason_pairclamp = 1
-autocmd FileType reason let g:pairtools_reason_tagwrench = 0
-autocmd FileType reason let g:pairtools_reason_jigsaw    = 1
-autocmd FileType reason let g:pairtools_reason_autoclose  = 1
-autocmd FileType reason let g:pairtools_reason_forcepairs = 0
-autocmd FileType reason let g:pairtools_reason_closepairs = "(:),[:],{:}" . ',":"'
-autocmd FileType reason let g:pairtools_reason_smartclose = 1
-autocmd FileType reason let g:pairtools_reason_smartcloserules = '\w,(,&,\*'
-autocmd FileType reason let g:pairtools_reason_antimagic  = 1
-autocmd FileType reason let g:pairtools_reason_antimagicfield  = "Comment,String,Special"
-autocmd FileType reason let g:pairtools_reason_pcexpander = 1
-autocmd FileType reason let g:pairtools_reason_pceraser   = 1
-autocmd FileType reason let g:pairtools_reason_tagwrenchhook = 'tagwrench#BuiltinNoHook'
-autocmd FileType reason let g:pairtools_reason_twexpander = 0
-autocmd FileType reason let g:pairtools_reason_tweraser   = 0
-autocmd FileType reason let g:pairtools_reason_apostrophe = 0
+"let g:syntastic_reason_checkers=['merlin']
+"autocmd FileType reason let g:pairtools_reason_pairclamp = 1
+"autocmd FileType reason let g:pairtools_reason_tagwrench = 0
+"autocmd FileType reason let g:pairtools_reason_jigsaw    = 1
+"autocmd FileType reason let g:pairtools_reason_autoclose  = 1
+"autocmd FileType reason let g:pairtools_reason_forcepairs = 0
+"autocmd FileType reason let g:pairtools_reason_closepairs = "(:),[:],{:}" . ',":"'
+"autocmd FileType reason let g:pairtools_reason_smartclose = 1
+"autocmd FileType reason let g:pairtools_reason_smartcloserules = '\w,(,&,\*'
+"autocmd FileType reason let g:pairtools_reason_antimagic  = 1
+"autocmd FileType reason let g:pairtools_reason_antimagicfield  = "Comment,String,Special"
+"autocmd FileType reason let g:pairtools_reason_pcexpander = 1
+"autocmd FileType reason let g:pairtools_reason_pceraser   = 1
+"autocmd FileType reason let g:pairtools_reason_tagwrenchhook = 'tagwrench#BuiltinNoHook'
+"autocmd FileType reason let g:pairtools_reason_twexpander = 0
+"autocmd FileType reason let g:pairtools_reason_tweraser   = 0
+"autocmd FileType reason let g:pairtools_reason_apostrophe = 0
 
 " typescript
 if !exists("g:ycm_semantic_triggers")
@@ -432,27 +457,26 @@ autocmd BufNewFile,BufRead *.edn set filetype=clojure
 "au FileType cpp noremap <silent> <F5> :call system('urxvt-eval ./scripts/brun &')<cr>
 
 
-func BuildRun()
-  up
-  silent call system('urxvt-eval "./scripts/build && ./scripts/run" &')
-endfunc
+"func BuildRun()
+  "up
+  "silent call system('urxvt-eval "./scripts/build && ./scripts/run" &')
+"endfunc
 
-au FileType nim,cpp,c,asm,fasm noremap  <silent> <F5> :call BuildRun()<cr>
-au FileType nim,cpp,c,asm,fasm inoremap <silent> <F5> <esc>:call BuildRun()<cr>
+"au FileType nim,cpp,c,asm,fasm noremap  <silent> <F5> :call BuildRun()<cr>
+"au FileType nim,cpp,c,asm,fasm inoremap <silent> <F5> <esc>:call BuildRun()<cr>
 
-func BuildLib()
-  up
-  silent call system('urxvt-eval ./scripts/build-lib &')
-endfunc
+"func BuildLib()
+  "up
+  "silent call system('urxvt-eval ./scripts/build-lib &')
+"endfunc
 
-au FileType cpp,c noremap  <silent> <F4> :call BuildLib()<cr>
-au FileType cpp,c inoremap <silent> <F4> <esc>:call BuildLib()<cr>
+"au FileType cpp,c noremap  <silent> <F4> :call BuildLib()<cr>
+"au FileType cpp,c inoremap <silent> <F4> <esc>:call BuildLib()<cr>
 
-func UrxvtEval(str)
-  up
-  silent call system('urxvt-eval ' . a:str)
-endfunc
-
+"func UrxvtEval(str)
+  "up
+  "silent call system('urxvt-eval ' . a:str)
+"endfunc
 
 
 " set cursor to thin line
@@ -486,3 +510,51 @@ hi VertSplit ctermbg=234 ctermfg=234
 
 au BufNewFile,BufRead *.fasm set filetype=fasm
 au BufNewFile,BufRead *.dream set filetype=clojure
+
+
+let g:OmniSharp_server_path = '/opt/omnisharp-roslyn-v1.32.1/omnisharp/OmniSharp.exe'
+let g:OmniSharp_server_use_mono = 1
+let g:syntastic_cs_checkers = ['code_checker']
+"set completeopt=longest,menuone,preview
+set completeopt=menuone
+let g:OmniSharp_timeout = 5
+
+
+let g:LanguageClient_serverCommands = {
+    \ 'reason': ['ocaml-language-server', '--stdio'],
+    \ 'ocaml': ['ocaml-language-server', '--stdio'],
+    \ }
+
+au FileType reason nmap <F3> :call LanguageClient_textDocument_formatting()<cr>
+
+
+let g:deoplete#enable_at_startup = 1
+"let g:neocomplete#enable_at_startup = 1
+
+"set completeopt-=preview
+
+"let g:ycm_add_preview_to_completeopt = 1
+
+
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+"nmap <F4> <Plug>(JavaComplete-Imports-AddMissing)
+"imap <F4> <Plug>(JavaComplete-Imports-AddMissing)
+
+let g:ycm_global_ycm_extra_conf = "~/projects/dotfiles/ycm_extra_conf.py"
+"let g:ycm_filetype_specific_completion_to_disable = {
+let g:ycm_filetype_blacklist = {
+      \ 'java': 1,
+      \}
+
+let g:ycm_rust_src_path = '/usr/src/rustc-1.28.0'
+
+"let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
+let g:syntastic_go_checkers = ['gofmt', 'golint', 'govet', 'gometalinter']
+
+
+"let g:ale_cache_executable_check_failures = 1
+
+let g:ale_kotlin_languageserver_executable = "/opt/kotlin-language-server-0.1.1/bin/kotlin-language-server"
+
+
+au FileType nim,cpp,c,asm,fasm noremap  <F5> :up <cr> :AsyncRun ./scripts/debug <cr>

@@ -10,7 +10,7 @@ MainWindow #translateLine, ScanPopup #translateLine, MainWindow #wordList, MainW
   /*color: white;*/
   color : #727983
 }
-#navToolbar GroupComboBox {
+ScanPopup GroupComboBox, #navToolbar GroupComboBox {
   background-color: black;
   color : #727983
 }
