@@ -28,75 +28,72 @@ set arabicshape!
 call plug#begin('~/.vim/bundle')
 "Plug 'bling/vim-airline'
 "Plug 'scrooloose/syntastic'
-Plug 'kchmck/vim-coffee-script'
+"Plug 'kchmck/vim-coffee-script'
 "Plugin 'digitaltoad/vim-jade'
 "Plugin 'nikvdp/ejs-syntax'
-
-Plug 'elmcast/elm-vim'
-"Plugin 'lambdatoast/elm.vim'
 
 Plug 'leafgarland/typescript-vim'
 
 "Plugin 'dart-lang/dart-vim-plugin'
 "Plugin 'mtscout6/vim-cjsx'
-Plug 'jvirtanen/vim-octave'
+"Plug 'jvirtanen/vim-octave'
 
 "Plugin 'guns/vim-clojure-static'
 
-Plug 'tpope/vim-fireplace'
+"Plug 'tpope/vim-fireplace'
 "Plug 'jebberjeb/clojure-socketrepl.nvim'
 "Plug '~/projects/replwrap'
 "Plug '~/.vim/bundle/replwrap'
 
 "Plugin 'vim-scripts/paredit.vim'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
+"Plug 'tpope/vim-sexp-mappings-for-regular-people'
 "Plugin 'guns/vim-sexp'
 "Plugin 'tpope/vim-classpath'
 "Plugin 'kien/rainbow_parentheses.vim'
 "Plugin 'wincent/command-t'
-Plug 'scrooloose/nerdcommenter'
+
 "Plugin 'jayferd/eco.vim'
 "Plugin 'briancollins/vim-jst' 
 "Plugin 'pangloss/vim-javascript'
 "Plugin 'KabbAmine/vCoolor.vim'
 
 "Plugin 'mustache/vim-mustache-handlebars'
-Plug 'tpope/vim-abolish'
+"Plug 'tpope/vim-abolish'
 
 "Plugin '/home/raoof/projects/dream-vim/.git'
 
-Plug 'jdonaldson/vaxe'
+"Plug 'jdonaldson/vaxe'
 
-Plug 'tikhomirov/vim-glsl'
+"Plug 'tikhomirov/vim-glsl'
 
 "Plugin 'flazz/vim-colorschemes'
 "Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-colorscheme-switcher'
 "Plugin 'felixhummel/setcolors.vim'
 
-Plug 'derekwyatt/vim-sbt'
-Plug 'derekwyatt/vim-scala'
+"Plug 'derekwyatt/vim-sbt'
+"Plug 'derekwyatt/vim-scala'
 "Plugin 'ensime/ensime-vim'
 
 "Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'tpope/vim-vividchalk'
-Plug 'vim-scripts/vibrantink'
-Plug 'flazz/vim-colorschemes'
+"Plug 'tpope/vim-vividchalk'
+"Plug 'vim-scripts/vibrantink'
+"Plug 'flazz/vim-colorschemes'
 "Plug 'felixhummel/setcolors.vim'
 
-Plug 'eagletmt/neco-ghc'
-Plug 'ervandew/supertab'
-Plug 'godlygeek/tabular'
+"Plug 'eagletmt/neco-ghc'
+"Plug 'ervandew/supertab'
+"Plug 'godlygeek/tabular'
 "Plugin 'eagletmt/ghcmod-vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Twinside/vim-hoogle'
+"Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'Twinside/vim-hoogle'
 "Plugin 'eagletmt/ghcmod-vim'
 "Plugin 'Shougo/vimproc.vim'
-Plug 'bitc/vim-hdevtools'
+"Plug 'bitc/vim-hdevtools'
 
 "Plugin 'Shougo/neocomplete.vim'
 
-Plug 'raichoo/purescript-vim'
+"Plug 'raichoo/purescript-vim'
 
 "Plugin 'dsolstad/vim-wombat256i'
 
@@ -105,47 +102,44 @@ Plug 'raichoo/purescript-vim'
 
 "Plug 'davidhalter/jedi-vim'
 
-Plug 'JBakamovic/yavide'
+"Plug 'JBakamovic/yavide'
 
 "Plug 'magicalbanana/vim-sql-syntax'
 
 "Plug 'reasonml/vim-reason-loader'
-Plug 'MartinLafreniere/vim-PairTools'
+"Plug 'MartinLafreniere/vim-PairTools'
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 
 "Plug 'venantius/vim-cljfmt'
 
 "Plug 'sbdchd/neoformat'
 
-Plug 'Chiel92/vim-autoformat'
 
-Plug 'jeroenbourgois/vim-actionscript'
+"Plug 'jeroenbourgois/vim-actionscript'
 
 "Plug 'bhurlow/vim-parinfer'
 
 "Plug 'bagrat/vim-workspace'
 "Plug 'mkitt/tabline.vim'
 "Plug 'webdevel/tabulous'
-Plug 'ap/vim-buftabline'
-Plug 'jceb/vim-orgmode'
+"Plug 'jceb/vim-orgmode'
 
-Plug 'vim-scripts/dbext.vim'
+"Plug 'vim-scripts/dbext.vim'
 
 "Plug 'StanAngeloff/php.vim'
 
-Plug 'zah/nim.vim'
+"Plug 'zah/nim.vim'
 Plug 'udalov/kotlin-vim'
 
 "Plug 'nsf/gocode', { 'rtp': 'vim', 'do': './vim/symlink.sh' }
 "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-Plug 'calviken/vim-gdscript3'
+"Plug 'calviken/vim-gdscript3'
 
-"Plug 'OmniSharp/omnisharp-vim'
-Plug 'rhysd/vim-crystal'
+"Plug 'rhysd/vim-crystal'
 
-Plug 'posva/vim-vue'
+"Plug 'posva/vim-vue'
 
 "Plug 'reasonml-editor/vim-reason-plus'
 "Plug 'autozimu/LanguageClient-neovim', {
@@ -153,6 +147,7 @@ Plug 'posva/vim-vue'
     "\ 'do': 'bash install.sh',
     "\ }
 
+"Plug 'OmniSharp/omnisharp-vim'
 "if has('nvim')
   "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "else
@@ -161,15 +156,44 @@ Plug 'posva/vim-vue'
   "Plug 'roxma/vim-hug-neovim-rpc'
 "endif
 
-Plug 'artur-shaik/vim-javacomplete2'
+"Plug 'artur-shaik/vim-javacomplete2'
 
-Plug 'rust-lang/rust.vim'
+"Plug 'rust-lang/rust.vim'
 
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 
 "Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 "Plug 'skywind3000/asyncrun.vim'
+
+"Plug 'idanarye/vim-dutyl'
+
+"Plug 'termhn/i3-vim-nav'
+
+"Plug 'jrozner/vim-antlr'
+
+"Plug 'fsharp/vim-fsharp', {
+      "\ 'for': 'fsharp',
+      "\ 'do':  'make fsautocomplete',
+      "\}
+
+"Plugin 'lambdatoast/elm.vim'
+
+"Plug 'derekelkins/agda-vim'
+
+
+
+
+
+"Plug 'elmcast/elm-vim'
+Plug 'ap/vim-buftabline'
+"Plug 'amerlyq/vim-focus-autocmd'
+"Plug 'wincent/terminus'
+Plug 'Chiel92/vim-autoformat'
+Plug 'scrooloose/nerdcommenter'
+Plug 'ziglang/zig.vim'
+
+"Plug 'arrufat/vala.vim'
 
 call plug#end()
 
@@ -207,6 +231,7 @@ set guicursor+=a:blinkon0
 
 " Disable Ex mode
 map Q <Nop>
+map K <nop>
 
 " Disable K looking stuff up
 "map K <Nop>
@@ -220,6 +245,12 @@ map <C-j> <esc>:wincmd j<CR>
 map <C-l> <esc>:wincmd l<CR>
 map <C-h> <esc>:wincmd h<CR>
 
+" i3 integration
+"nnoremap <silent> <c-l> :call Focus('right', 'l')<CR>
+"nnoremap <silent> <c-h> :call Focus('left', 'h')<CR>
+"nnoremap <silent> <c-k> :call Focus('up', 'k')<CR>
+"nnoremap <silent> <c-j> :call Focus('down', 'j')<CR>
+
 " Switch to alternate file
 if has("nvim") || has('gui_running')
   map <C-Tab> :bnext<cr>
@@ -232,6 +263,11 @@ else
   set <F14>=[27;6;9~
   nnoremap <F13> :bnext<cr>
   nnoremap <F14> :bprevious<cr>
+
+  "set <F15>="\e[I"
+  "set <F16>="\e[O"
+  "nnoremap <F15> :echo 'hello'
+  "nnoremap <F16> :echo 'hello'
 endif
 
 map <C-w> <esc>:bd<CR>
@@ -247,12 +283,15 @@ let mapleader = ","
 
 set t_Co=256
 "set term=xterm-256color
+"set term=rxvt
+"set term=rxvt-color
 if $TERM == 'linux'
 	set term=fbterm
 endif
 "colorscheme wombat256i
 colorscheme Tomorrow-Night-Bright
 set mouse=a
+set mousefocus
 
 
 " coffeescript
@@ -304,15 +343,15 @@ map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
 
 "let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
-let g:SuperTabDefaultCompletionType = '<c-n>'
+"let g:SuperTabDefaultCompletionType = '<c-n>'
 
-if has("gui_running")
-  imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-else " no gui
-  if has("unix")
-    inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-  endif
-endif
+"if has("gui_running")
+  "imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+"else " no gui
+  "if has("unix")
+    "inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+  "endif
+"endif
 
 let g:haskellmode_completion_ghc = 1
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
@@ -364,10 +403,10 @@ au FileType clojure nmap <F1> <S-k>
 
 "au FileType clojure,html,javascript,css noremap <silent> <F5> :call system('/usr/bin/curl -H "Content-Type: text/plain" http://localhost:3000/hotreload/' . expand("%:p") . " -d " . shellescape(join(getline(1,'$'), "\n")) . " > /dev/null")<cr>
 "au TextChanged,TextChangedI *.cljs,*.js silent call system('/usr/bin/curl -H "Content-Type: text/plain" http://localhost:3000/hotreload/' . expand("%:p") . " -d " . shellescape(join(getline(1,'$'), "\n")) . " > /dev/null")
-func Hotreload()
-  silent call system('/usr/bin/curl -H "Content-Type: text/plain" http://localhost:3000/hotreload/' . expand("%:p") . " -d " . shellescape(join(getline(1,'$'), "\n")) . " > /dev/null")
-endfunc
-au FileType clojure,html,javascript,css noremap <F5> :call Hotreload()<cr>
+"func Hotreload()
+  "silent call system('/usr/bin/curl -H "Content-Type: text/plain" http://localhost:3000/hotreload/' . expand("%:p") . " -d " . shellescape(join(getline(1,'$'), "\n")) . " > /dev/null")
+"endfunc
+"au FileType html,javascript,css noremap <F5> :call Hotreload()<cr>
 "au TextChanged,TextChangedI *.cljs,*.js call Hotreload()
 
 "map <F5> :!reload-browser chromium<cr>
@@ -437,8 +476,8 @@ let g:buftabline_indicators=1
 
 if has("nvim")
   set laststatus=0
-  tnoremap <Esc> <C-\><C-n>
 endif
+tnoremap <Esc> <C-\><C-n>
 
 if has('win32')
   set guifont=Consolas:h14:cANSI:qDRAFT
@@ -503,18 +542,18 @@ autocmd BufNewFile,BufRead *.edn set filetype=clojure
 
 "set statusline+=%f
 "set laststatus=2
-hi StatusLine ctermbg=white ctermfg=233
-hi StatusLineNC ctermbg=white ctermfg=black
-hi VertSplit ctermbg=234 ctermfg=234
-
+hi StatusLine ctermbg=255 ctermfg=8 guibg=#ffffff guifg=#333333
+hi StatusLineNC ctermbg=255 ctermfg=0 guibg=#ffffff guifg=#000000
+hi VertSplit ctermbg=0 ctermfg=8 guibg=#000000 guifg=#333333
 
 au BufNewFile,BufRead *.fasm set filetype=fasm
-au BufNewFile,BufRead *.dream set filetype=clojure
+au BufNewFile,BufRead *.dream set filetype=c
+au BufNewFile,BufRead *.nasm set filetype=nasm
 
 
 let g:OmniSharp_server_path = '/opt/omnisharp-roslyn-v1.32.1/omnisharp/OmniSharp.exe'
 let g:OmniSharp_server_use_mono = 1
-let g:syntastic_cs_checkers = ['code_checker']
+"let g:syntastic_cs_checkers = ['code_checker']
 "set completeopt=longest,menuone,preview
 set completeopt=menuone
 let g:OmniSharp_timeout = 5
@@ -557,16 +596,18 @@ let g:syntastic_go_checkers = ['gofmt', 'golint', 'govet', 'gometalinter']
 let g:ale_kotlin_languageserver_executable = "/opt/kotlin-language-server-0.1.1/bin/kotlin-language-server"
 
 
-au FileType nim,cpp,c,asm,fasm noremap  <F5> :up <cr> :AsyncRun ./scripts/debug <cr>
+"au FileType nim,cpp,c,asm,fasm noremap  <F5> :up <cr> :AsyncRun ./scripts/debug <cr>
 
 
 let g:formatdef_elm_format = '"elm-format --stdin"'
 let g:formatters_elm = ['elm_format']
 
 
+"   'cs': ['OmniSharp'],
 let g:ale_linters = {
+\   'cs': ['OmniSharp'],
 \   'cpp': [],
-\   'cs': [],
+\   'c': [],
 \}
 
 let g:ycm_semantic_triggers = {
@@ -581,7 +622,65 @@ set splitbelow
 "au FileType cpp,cs,kotlin noremap  <F5> :up <cr> :AsyncRun ./scripts/debug <cr>
 "noremap <F12> :vert botright copen 100<CR>
 
+"noremap <S-F5> <Nop>
+"inoremap <F5> <Nop>
 
-au FileType cpp,cs,kotlin noremap  <F5> :up <cr> :silent call system('urxvt-eval ./scripts/debug &') <cr>
+"au FileType cpp,cs,kotlin noremap  <F5> :up <cr> :silent call system('urxvt-eval ./scripts/debug &') <cr>
+
+"noremap  <S-F5> :up<cr>:silent call system('urxvt-eval ./scripts/debug &') <cr>
+"inoremap  <S-F5> <esc>:up<cr>:silent call system('urxvt-eval ./scripts/debug &') <cr>
+
+"noremap  <F5> :up<cr>:silent call system('urxvt-eval ./scripts/run &') <cr>
+"inoremap  <F5> <esc>:up<cr>:silent call system('urxvt-eval ./scripts/run &') <cr>
+
+"au FileType html,javascript,css,elm noremap  <buffer> <S-F5> :up<cr>:silent call system('./scripts/debug &') <cr>
+"au FileType html,javascript,css,elm inoremap <buffer>  <S-F5> <esc>:up<cr>:silent call system('./scripts/debug &') <cr>
+"au FileType html,javascript,css,elm noremap  <buffer> <F5> :up<cr>:silent call system('./scripts/run &') <cr>
+"au FileType html,javascript,css,elm inoremap <buffer>  <F5> <esc>:up<cr>:silent call system('./scripts/run &') <cr>
 
 let g:ale_kotlin_kotlinc_options = "-d bin"
+
+let g:elm_format_autosave = 0
+
+"call dutyl#register#tool('dcd-client','/home/raoof/git/DCD/bin/dcd-client')
+"call dutyl#register#tool('dcd-server','/home/raoof/git/DCD/bin/dcd-server')
+
+"call deoplete#custom#var('omni', 'input_patterns', {
+    "\ 'go': '[^. *\t]\.\w*',
+    "\})
+
+
+"set rtp+=<SHARE_DIR>/merlin/vim
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+let g:formatdef_ocamlformat = '"ocamlformat"'
+let g:formatters_ocaml = ['ocamlformat']
+
+
+au BufNewFile,BufRead *.agda setf agda
+au BufNewFile,BufRead *.cppm setf cpp
+
+
+let g:formatdef_ktlint = '"ktlint --stdin -F"'
+let g:formatters_kotlin = ['ktlint']
+
+
+noremap  <silent> <F5> :up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' build &') <cr>
+inoremap <silent> <F5> <esc>:up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' build &') <cr>
+noremap  <silent> <S-F5> :up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' debug_build &') <cr>
+inoremap <silent> <S-F5> <esc>:up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' debug_build &') <cr>
+noremap  <silent> <F6> :up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' engine_build &') <cr>
+inoremap <silent> <F6> <esc>:up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' engine_build &') <cr>
+noremap  <silent> <S-F6> :up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' engine_debug_build &') <cr>
+inoremap <silent> <S-F6> <esc>:up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' engine_debug_build &') <cr>
+
+
+"let g:formatdef_zig = '"zig fmt"'
+"let g:formatters_zig = ['zig']
+
+
+"au FocusGained * e
+"au FocusGained * echo 'hello'
+"set autoread                                                                                                                                                                                    
+"au CursorHold * checktime  
+"set autoread | au CursorHold * checktime | call feedkeys("lh")

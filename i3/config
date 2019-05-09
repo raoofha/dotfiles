@@ -21,8 +21,8 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec xterm 
-#bindsym $mod+Return exec xterm -e "cd `xcwd` && /bin/zsh"
-bindsym $mod+Return exec xcwd | xargs urxvt -cd
+bindsym $mod+Return exec xterm -e "cd `xcwd` && /bin/zsh"
+#bindsym $mod+Return exec xcwd | xargs urxvt -cd
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -233,11 +233,19 @@ exec dropbox start
 #client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 #client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+#client.focused          #333333 #000000 #ffffff #2e9ef4   #285577
 client.focused_inactive #333333 #000000 #9b9b9b #484e50   #5f676a
+#client.focused_inactive #000000 #000000 #9b9b9b #484e50   #5f676a
 client.unfocused        #333333 #000000 #9b9b9b #292d2e   #222222
+#client.unfocused        #000000 #000000 #9b9b9b #292d2e   #222222
 #client.urgent           #2f343a #900000 #ffffff #900000   #900000
 #client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 #
 #client.background       #ffffff
 
 #for_window [workspace="6"] floating enable
+
+#bindsym --release $mod+h exec --no-startup-id "/home/raoof/.go/bin/i3-vim-nav h"
+#bindsym --release $mod+j exec --no-startup-id "/home/raoof/.go/bin/i3-vim-nav j"
+#bindsym --release $mod+k exec --no-startup-id "/home/raoof/.go/bin/i3-vim-nav k"
+#bindsym --release $mod+l exec --no-startup-id "/home/raoof/.go/bin/i3-vim-nav l"

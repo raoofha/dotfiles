@@ -22,6 +22,7 @@ URxvt.background: [95]#000000
 
 URxvt.font: xft:DejaVu Sans Mono:antialias=true:size=11
 URxvt.letterSpace: -1
+xterm.font: DejaVu Sans Mono:antialias=true:pixelsize=11
 
 
 ! Molokai theme
@@ -128,13 +129,80 @@ URxvt.iso14755_52: false
 URxvt*keysym.C-Tab:    \033[27;5;9~
 URxvt*keysym.C-S-Tab:  \033[27;6;9~
 URxvt*keysym.C-S-ISO_Left_Tab: \033[27;6;9~
-URxvt.perl-ext-common: selection-to-clipboard,clipboard
+!URxvt.perl-ext-common: selection-to-clipboard,clipboard
+URxvt.perl-ext-common: selection-to-clipboard,clipboard,focus-events 
+!,default,matcher
+
 !URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.keysym.Shift-Insert: perl:clipboard:paste
 URxvt.perl-lib: /home/raoof/projects/dotfiles/urxvt
 
 
-!*vt100.translations: #override \n\
-xterm.vt100.translations: #override \n\
+*vt100.translations: #override \n\
     Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n\
     Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n 
+
+URxvt.keysym.S-F5 : \033[15;2~
+URxvt.keysym.S-F6 : \033[17;2~
+!URxvt.keysym.S-F1 : \033[1;2P
+!URxvt.keysym.S-F2 : \033[1;2Q
+!URxvt.keysym.S-F3 : \033[1;2R
+!URxvt.keysym.S-F4 : \033[1;2S
+!URxvt.keysym.S-F5 : \033[15;2~
+!URxvt.keysym.S-F6 : \033[17;2~
+!URxvt.keysym.S-F7 : \033[18;2~
+!URxvt.keysym.S-F8 : \033[19;2~
+!URxvt.keysym.S-F9 : \033[20;2~
+!URxvt.keysym.S-F10 : \033[21;2~
+!URxvt.keysym.S-F11 : \033[23;2~
+!URxvt.keysym.S-F12 : \033[24;2~
+!URxvt.keysym.C-F1 : \033[1;5P
+!URxvt.keysym.C-F2 : \033[1;5Q
+!URxvt.keysym.C-F3 : \033[1;5R
+!URxvt.keysym.C-F4 : \033[1;5S
+!URxvt.keysym.C-F5 : \033[15;5~
+!URxvt.keysym.C-F6 : \033[17;5~
+!URxvt.keysym.C-F7 : \033[18;5~
+!URxvt.keysym.C-F8 : \033[19;5~
+!URxvt.keysym.C-F9 : \033[20;5~
+!URxvt.keysym.C-F10 : \033[21;5~
+!URxvt.keysym.C-F11 : \033[23;5~
+!URxvt.keysym.C-F12 : \033[24;5~
+!URxvt.keysym.C-S-F1 : \033[1;6P
+!URxvt.keysym.C-S-F2 : \033[1;6Q
+!URxvt.keysym.C-S-F3 : \033[1;6R
+!URxvt.keysym.C-S-F4 : \033[1;6S
+!URxvt.keysym.C-S-F5 : \033[15;6~
+!URxvt.keysym.C-S-F6 : \033[17;6~
+!URxvt.keysym.C-S-F7 : \033[18;6~
+!URxvt.keysym.C-S-F8 : \033[19;6~
+!URxvt.keysym.C-S-F9 : \033[20;6~
+!URxvt.keysym.C-S-F10 : \033[21;6~
+!URxvt.keysym.C-S-F11 : \033[23;6~
+!URxvt.keysym.C-S-F12 : \033[24;6~
+!URxvt.keysym.Mod3-F1 : \033[1;3P
+!URxvt.keysym.Mod3-F2 : \033[1;3Q
+!URxvt.keysym.Mod3-F3 : \033[1;3R
+!URxvt.keysym.Mod3-F4 : \033[1;3S
+!URxvt.keysym.Mod3-F5 : \033[15;3~
+!URxvt.keysym.Mod3-F6 : \033[17;3~
+!URxvt.keysym.Mod3-F7 : \033[18;3~
+!URxvt.keysym.Mod3-F8 : \033[19;3~
+!URxvt.keysym.Mod3-F9 : \033[20;3~
+!URxvt.keysym.Mod3-F10 : \033[21;3~
+!URxvt.keysym.Mod3-F11 : \033[23;3~
+!URxvt.keysym.Mod3-F12 : \033[24;3~
+!URxvt.keysym.Mod3-S-F1: \033[1;4P
+!URxvt.keysym.Mod3-S-F2: \033[1;4Q
+!URxvt.keysym.Mod3-S-F3: \033[1;4R
+
+
+!urxvt*depth: 32
+!urxvt*background: rgba:0000/0000/0200/c800
+
+!urxvt*url-launcher: chromium-black
+!urxvt*matcher.button: 1
+
+!URxvt.matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+!URxvt.matcher.pattern.2:  \\B(/\\S+?):(\\d+)(?=:|$)
+!URxvt.matcher.launcher.2: notify-send +$2 $1

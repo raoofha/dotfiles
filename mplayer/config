@@ -12,7 +12,7 @@ subfont-text-scale=3
 subfont-osd-scale=3
 stop-xscreensaver=1
 nolirc=true
-sub-fuzziness=2
+sub-fuzziness=1
 #expand=:::::1
 # Set font encoding.
 #subfont-encoding=unicode
@@ -37,3 +37,4 @@ subcp=enca:__:cp1256
 slang=eng,fas
 
 sub-paths=sub
+#osd-fractions=1
