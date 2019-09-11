@@ -32,7 +32,7 @@ call plug#begin('~/.vim/bundle')
 "Plugin 'digitaltoad/vim-jade'
 "Plugin 'nikvdp/ejs-syntax'
 
-Plug 'leafgarland/typescript-vim'
+"Plug 'leafgarland/typescript-vim'
 
 "Plugin 'dart-lang/dart-vim-plugin'
 "Plugin 'mtscout6/vim-cjsx'
@@ -130,7 +130,7 @@ Plug 'leafgarland/typescript-vim'
 "Plug 'StanAngeloff/php.vim'
 
 "Plug 'zah/nim.vim'
-Plug 'udalov/kotlin-vim'
+"Plug 'udalov/kotlin-vim'
 
 "Plug 'nsf/gocode', { 'rtp': 'vim', 'do': './vim/symlink.sh' }
 "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -186,12 +186,12 @@ Plug 'udalov/kotlin-vim'
 
 
 "Plug 'elmcast/elm-vim'
-Plug 'ap/vim-buftabline'
+"Plug 'ap/vim-buftabline'
 "Plug 'amerlyq/vim-focus-autocmd'
 "Plug 'wincent/terminus'
 Plug 'Chiel92/vim-autoformat'
-Plug 'scrooloose/nerdcommenter'
-Plug 'ziglang/zig.vim'
+"Plug 'scrooloose/nerdcommenter'
+"Plug 'ziglang/zig.vim'
 
 "Plug 'arrufat/vala.vim'
 
@@ -541,7 +541,6 @@ autocmd BufNewFile,BufRead *.edn set filetype=clojure
 "set cul
 
 "set statusline+=%f
-"set laststatus=2
 hi StatusLine ctermbg=255 ctermfg=8 guibg=#ffffff guifg=#333333
 hi StatusLineNC ctermbg=255 ctermfg=0 guibg=#ffffff guifg=#000000
 hi VertSplit ctermbg=0 ctermfg=8 guibg=#000000 guifg=#333333
@@ -549,6 +548,7 @@ hi VertSplit ctermbg=0 ctermfg=8 guibg=#000000 guifg=#333333
 au BufNewFile,BufRead *.fasm set filetype=fasm
 au BufNewFile,BufRead *.dream set filetype=c
 au BufNewFile,BufRead *.nasm set filetype=nasm
+au BufNewFile,BufRead *.gas set filetype=fasm
 
 
 let g:OmniSharp_server_path = '/opt/omnisharp-roslyn-v1.32.1/omnisharp/OmniSharp.exe'
@@ -684,3 +684,42 @@ inoremap <silent> <S-F6> <esc>:up<cr>:silent call system('term-eval bash ' . exp
 "set autoread                                                                                                                                                                                    
 "au CursorHold * checktime  
 "set autoread | au CursorHold * checktime | call feedkeys("lh")
+
+
+
+"set showtabline=2
+"set tabline="what status line equals, or equaled or whatever"
+"hi tablinefill cterm=none ctermbg=blue ctermfg=white gui=none guibg=blue guifg=white
+
+"function! GitBranch()
+  "return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+"endfunction
+
+"function! StatuslineGit()
+  "let l:branchname = GitBranch()
+  "return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+"endfunction
+
+set laststatus=0
+set statusline=
+"set statusline+=%#PmenuSel#
+"set statusline+=%#CursorColumn#
+set statusline+=%#LineNr#
+set statusline+=%=
+"set statusline+=%{StatuslineGit()}
+"set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m
+"set statusline+=%=
+"set statusline+=%#CursorColumn#
+"set statusline+=\ %y
+"set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+"set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\ 
+
+set rulerformat=%50(%=%f\ %m\ %p%%\ %l:%c%)
+
+let g:formatdef_dfmt = '"dfmt --indent_size 2"'
+let g:formatters_d = ['dfmt']

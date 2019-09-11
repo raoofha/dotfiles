@@ -188,6 +188,7 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5%
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 -- +5%
 bindsym XF86AudioMute exec pactl set-sink-volume 0 0
 bindsym $mod+b exec ~/.bg_random.sh
+bindsym $mod+Shift+b exec ~/projects/bin/unsplash.com.sh
 bindsym $mod+F4 exec `xrandr --output VGA1 --auto --pos -1024x800` 
 bindsym $mod+F5 exec sudo pm-suspend
 
@@ -213,7 +214,8 @@ assign [class="^GoldenDict$"] 4
 
 exec ~/.bg_random.sh
 #exec chromium --enable-remote-extensions & goldendict
-exec chromium-black & goldendict
+#exec chromium-black & goldendict
+exec chromium & goldendict
 exec dropbox start
 
 #bar {
@@ -249,3 +251,5 @@ client.unfocused        #333333 #000000 #9b9b9b #292d2e   #222222
 #bindsym --release $mod+j exec --no-startup-id "/home/raoof/.go/bin/i3-vim-nav j"
 #bindsym --release $mod+k exec --no-startup-id "/home/raoof/.go/bin/i3-vim-nav k"
 #bindsym --release $mod+l exec --no-startup-id "/home/raoof/.go/bin/i3-vim-nav l"
+
+for_window [instance="Godot_Engine"] floating enable

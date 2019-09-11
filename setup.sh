@@ -24,4 +24,6 @@ ln -fs ~/projects/dotfiles/zathura ~/.config/zathura
 ln -fs ~/projects/dotfiles/mlterm/color ~/.mlterm/color
 ln -fs ~/projects/dotfiles/mlterm/main ~/.mlterm/main
 
+ln -fs ~/projects/dotfiles/bashrc ~/.bashrc
+
 chmod +x ~/.bg_random.sh
