@@ -140,7 +140,8 @@ URxvt.perl-lib: /home/raoof/projects/dotfiles/urxvt
 
 *vt100.translations: #override \n\
     Ctrl ~Shift <Key>Tab: string(0x1b) string("[27;5;9~") \n\
-    Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n 
+    Ctrl Shift <Key>Tab: string(0x1b) string("[27;6;9~") \n
+!    <Key>Super_L: string(0x1b) string("[27;7;9~") \n 
 
 URxvt.keysym.S-F5 : \033[15;2~
 URxvt.keysym.S-F6 : \033[17;2~
@@ -206,3 +207,6 @@ URxvt.keysym.S-F6 : \033[17;2~
 !URxvt.matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 !URxvt.matcher.pattern.2:  \\B(/\\S+?):(\\d+)(?=:|$)
 !URxvt.matcher.launcher.2: notify-send +$2 $1
+
+
+XTerm.fullscreen: never

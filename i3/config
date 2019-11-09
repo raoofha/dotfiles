@@ -215,7 +215,8 @@ assign [class="^GoldenDict$"] 4
 exec ~/.bg_random.sh
 #exec chromium --enable-remote-extensions & goldendict
 #exec chromium-black & goldendict
-exec chromium & goldendict
+#exec chromium & goldendict
+exec google-chrome & goldendict
 exec dropbox start
 
 #bar {
@@ -253,3 +254,7 @@ client.unfocused        #333333 #000000 #9b9b9b #292d2e   #222222
 #bindsym --release $mod+l exec --no-startup-id "/home/raoof/.go/bin/i3-vim-nav l"
 
 for_window [instance="Godot_Engine"] floating enable
+#for_window [instance="command_shell"] floating enable # <--- ddd
+#for_window [instance="kdbg"] floating enable
+#for_window [class="raoof_debugger"] floating enable
+for_window [class="floating"] floating enable

@@ -12,7 +12,7 @@ xmodmap -e "keysym Menu = Hyper_L" &
 # turn off the beep sound
 xset b off
 
-export QT_QPA_PLATFORMTHEME=gtk2
+#export QT_QPA_PLATFORMTHEME=gtk2
 
 export PATH=$PATH:$HOME/.local/bin
 

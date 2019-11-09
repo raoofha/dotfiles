@@ -195,6 +195,11 @@ Plug 'Chiel92/vim-autoformat'
 
 "Plug 'arrufat/vala.vim'
 
+
+if has('nvim')
+  Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+endif
+
 call plug#end()
 
 " allow backspacing over everything in insert mode
@@ -277,7 +282,10 @@ imap <C-s> <esc>:w<CR>
 map <C-q> <esc>:q<CR>
 imap <C-q> <esc>:q<CR>
 "map :Q :q<CR>
+
+if !exists("raoof_debugger")
 map <F9> :Explore<CR>
+endif
 
 let mapleader = ","
 
@@ -665,14 +673,16 @@ let g:formatdef_ktlint = '"ktlint --stdin -F"'
 let g:formatters_kotlin = ['ktlint']
 
 
-noremap  <silent> <F5> :up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' build &') <cr>
-inoremap <silent> <F5> <esc>:up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' build &') <cr>
-noremap  <silent> <S-F5> :up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' debug_build &') <cr>
-inoremap <silent> <S-F5> <esc>:up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' debug_build &') <cr>
-noremap  <silent> <F6> :up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' engine_build &') <cr>
-inoremap <silent> <F6> <esc>:up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' engine_build &') <cr>
-noremap  <silent> <S-F6> :up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' engine_debug_build &') <cr>
-inoremap <silent> <S-F6> <esc>:up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' engine_debug_build &') <cr>
+if !has('nvim')
+  noremap  <silent> <F5> :up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' build &') <cr>
+  inoremap <silent> <F5> <esc>:up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' build &') <cr>
+  noremap  <silent> <S-F5> :up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' debug_build &') <cr>
+  inoremap <silent> <S-F5> <esc>:up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' debug_build &') <cr>
+  noremap  <silent> <F6> :up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' engine_build &') <cr>
+  inoremap <silent> <F6> <esc>:up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' engine_build &') <cr>
+  noremap  <silent> <S-F6> :up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' engine_debug_build &') <cr>
+  inoremap <silent> <S-F6> <esc>:up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' engine_debug_build &') <cr>
+endif
 
 
 "let g:formatdef_zig = '"zig fmt"'
@@ -722,4 +732,6 @@ set statusline+=\
 set rulerformat=%50(%=%f\ %m\ %p%%\ %l:%c%)
 
 let g:formatdef_dfmt = '"dfmt --indent_size 2"'
+let g:formatdef_uncrustify = '"uncrustify -q -l d -c /home/raoof/.uncrustify-d.cfg"'
 let g:formatters_d = ['dfmt']
+"let g:formatters_d = ['uncrustify']
