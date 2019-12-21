@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=1000000
+HISTFILESIZE=2000000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -58,7 +58,7 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\h\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\] » '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[38;5;22m\]\h\[\033[00m\] \[\033[38;5;130m\]\w\[\033[38;5;214m\] » \[\033[00m\]'
 else
     #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     PS1='${debian_chroot:+($debian_chroot)}\h \w » '
@@ -123,5 +123,12 @@ export SDKMAN_DIR="/home/raoof/.sdkman"
 
 
 alias v=vim
+alias l="ls -l"
 alias ins="sudo apt-get install"
 alias ..="cd .."
+
+bind -m vi-command '"\201": previous-history'
+bind -m vi-command '"\202": next-history'
+bind -m vi-command '"\203": end-of-line'
+bind -m vi-command '"k": "\201\203"'
+bind -m vi-command '"j": "\202\203"'

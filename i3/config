@@ -21,7 +21,8 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec xterm 
-bindsym $mod+Return exec xterm -e "cd `xcwd` && /bin/zsh"
+#bindsym $mod+Return exec xterm -e "cd `xcwd` && /bin/zsh"
+bindsym $mod+Return exec xterm -e "cd `xcwd` && /bin/bash"
 #bindsym $mod+Return exec xcwd | xargs urxvt -cd
 
 # kill focused window
@@ -258,3 +259,5 @@ for_window [instance="Godot_Engine"] floating enable
 #for_window [instance="kdbg"] floating enable
 #for_window [class="raoof_debugger"] floating enable
 for_window [class="floating"] floating enable
+for_window [class="floating-no-border"] floating enable, border none 
+#for_window [class="floating-no-border"] border pixel 0

@@ -195,6 +195,7 @@ Plug 'Chiel92/vim-autoformat'
 
 "Plug 'arrufat/vala.vim'
 
+"Plug 'andys8/vim-elm-syntax'
 
 if has('nvim')
   Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
@@ -735,3 +736,5 @@ let g:formatdef_dfmt = '"dfmt --indent_size 2"'
 let g:formatdef_uncrustify = '"uncrustify -q -l d -c /home/raoof/.uncrustify-d.cfg"'
 let g:formatters_d = ['dfmt']
 "let g:formatters_d = ['uncrustify']
+
+set ghr=0
