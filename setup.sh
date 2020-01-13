@@ -27,3 +27,5 @@ ln -fs ~/projects/dotfiles/mlterm/main ~/.mlterm/main
 ln -fs ~/projects/dotfiles/bashrc ~/.bashrc
 
 chmod +x ~/.bg_random.sh
+
+ln -fs ~/projects/dotfiles/mimeapps.list ~/.config/mimeapps.list

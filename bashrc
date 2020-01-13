@@ -123,7 +123,7 @@ export SDKMAN_DIR="/home/raoof/.sdkman"
 
 
 alias v=vim
-alias l="ls -l"
+alias l="ls -la"
 alias ins="sudo apt-get install"
 alias ..="cd .."
 
@@ -132,3 +132,21 @@ bind -m vi-command '"\202": next-history'
 bind -m vi-command '"\203": end-of-line'
 bind -m vi-command '"k": "\201\203"'
 bind -m vi-command '"j": "\202\203"'
+
+
+export GOPATH="/home/raoof/.go"
+export PATH="$GOPATH/bin:$PATH"
+
+
+alias mb="udisksctl mount -b /dev/sdb1"
+alias mb2="udisksctl mount -b /dev/sdc1"
+alias mb3="udisksctl mount -b /dev/sdd1"
+alias mb4="udisksctl mount -b /dev/sde1"
+alias umb="udisksctl unmount -b /dev/sdb1"
+alias umb2="udisksctl unmount -b /dev/sdc1"
+alias umb3="udisksctl unmount -b /dev/sdd1"
+alias umb4="udisksctl unmount -b /dev/sde1"
+
+export PROMPT_COMMAND="history -a; history -n"
+
+alias yt="torify youtube-dl"

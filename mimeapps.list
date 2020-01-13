@@ -1,0 +1,22 @@
+[Default Applications]
+x-scheme-handler/tg=telegramdesktop.desktop;
+image/jpeg=feh.desktop;
+image/jpg=feh.desktop;
+image/gif=feh.desktop;
+image/png=feh.desktop;
+inode/directory=org.gnome.Nautilus.desktop;
+text/html=google-chrome-stable.desktop;
+x-scheme-handler/run=run.desktop;
+image/vnd.djvu=org.gnome.Evince.desktop;
+application/pdf=org.gnome.Evince.desktop;
+application/postscript=org.gnome.Evince.desktop;
+#image/vnd.djvu=org.pwmt.zathura.desktop;
+#application/epub+zip=
+video/x-matroska=mplayer.desktop;
+audio/mpeg=mplayer.desktop;
+video/x-msvideo=mplayer.desktop;
+#dat
+chemical/x-mopac-input=mplayer.desktop;
+text/plain=vim.desktop;
+application/javascript=vim.desktop;
+text/x-python=vim.desktop;
