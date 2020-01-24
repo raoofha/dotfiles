@@ -22,17 +22,20 @@ URxvt.background: [95]#000000
 
 URxvt.font: xft:DejaVu Sans Mono:antialias=true:size=11
 URxvt.letterSpace: -1
-xterm.font: DejaVu Sans Mono:antialias=true:pixelsize=11
+!xterm.font: DejaVu Sans Mono:antialias=true:pixelsize=11
+XTerm.font: xft:DejaVu Sans Mono Nerd Font Complete Mono:antialias=true:pixelsize=11
 
 
 ! Molokai theme
 !*background: #101010
-*background: #000000
+!*background: #000000
+xterm*background: #000000
+xterm*foreground: #d0d0d0
 !*foreground: #d0d0d0
 !*foreground: #ffffff
 !*foreground: #727983
-*foreground: #c8c8c8
-*cursorColor: #d0d0d0
+!*foreground: #c8c8c8
+!*cursorColor: #d0d0d0
 !*color0: #101010
 *color0: #000000
 *color1: #960050

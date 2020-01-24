@@ -18,6 +18,8 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000000
 HISTFILESIZE=2000000
+HISTTIMEFORMAT="%y-%m-%d %T "
+HISTCONTROL=ignoreboth:erasedups
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -147,6 +149,11 @@ alias umb2="udisksctl unmount -b /dev/sdc1"
 alias umb3="udisksctl unmount -b /dev/sdd1"
 alias umb4="udisksctl unmount -b /dev/sde1"
 
-export PROMPT_COMMAND="history -a; history -n"
+#export PROMPT_COMMAND="history -a; history -n"
+PROMPT_COMMAND="history -a"
 
 alias yt="torify youtube-dl"
+
+# do not echo ^C
+stty sane
+stty -echoctl
