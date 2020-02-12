@@ -157,26 +157,24 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "mouse" {
-    bindsym w exec xdotool mousemove_relative -- 0 -30
-    bindsym Shift+W exec xdotool mousemove_relative -- 0 -15
-    bindsym s exec xdotool mousemove_relative -- 0 30
-    bindsym Shift+S exec xdotool mousemove_relative -- 0 15
-    bindsym d exec xdotool mousemove_relative -- 30 0
-    bindsym Shift+d exec xdotool mousemove_relative -- 15 0
-    bindsym a exec xdotool mousemove_relative -- -30 0
-    bindsym Shift+A exec xdotool mousemove_relative -- -15 0
-    bindsym k exec xdotool mousemove_relative -- 0 -30
-    bindsym Shift+K exec xdotool mousemove_relative -- 0 -15
-    bindsym j exec xdotool mousemove_relative -- 0 30
-    bindsym Shift+J exec xdotool mousemove_relative -- 0 15
-    bindsym l exec xdotool mousemove_relative -- 30 0
-    bindsym Shift+L exec xdotool mousemove_relative -- 15 0
-    bindsym h exec xdotool mousemove_relative -- -30 0
-    bindsym Shift+H exec xdotool mousemove_relative -- -15 0
-    bindsym f exec xdotool click 1
-    bindsym r exec xdotool click 3
-    bindsym e exec xdotool mousedown 1
-    bindsym q exec xdotool mouseup 1
+  bindsym w exec xdotool mousemove_relative  0 -100
+  bindsym s exec xdotool mousemove_relative  0  100
+  bindsym a exec xdotool mousemove_relative -- -100  0
+  bindsym d exec xdotool mousemove_relative  100  0
+
+  bindsym Shift+w exec xdotool mousemove_relative  0 -10
+  bindsym Shift+s exec xdotool mousemove_relative  0  10
+  bindsym Shift+a exec xdotool mousemove_relative -- -10  0
+  bindsym Shift+d exec xdotool mousemove_relative  10  0
+
+  bindsym Return exec xdotool click 1
+  bindsym Shift+Return exec xdotool click 3
+
+  bindsym f exec xdotool click 1
+  bindsym r exec xdotool click 3
+  bindsym e exec xdotool mousedown 1
+  bindsym q exec xdotool mouseup 1
+
 	bindsym Escape mode "default"
 }
 bindsym $mod+m mode "mouse"
@@ -261,3 +259,36 @@ for_window [instance="Godot_Engine"] floating enable
 for_window [class="floating"] floating enable
 for_window [class="floating-no-border"] floating enable, border none 
 #for_window [class="floating-no-border"] border pixel 0
+
+
+bindsym $mod+n mode "vim-normal"
+mode "vim-normal" {
+  #bindsym j exec notify-send hello
+  
+  #bindsym j exec xdotool click 5
+  #bindsym k exec xdotool click 4
+  
+  #bindsym j exec xdotool key Down
+  #bindsym k exec xdotool key Up
+  #bindsym h exec xdotool key Left
+  #bindsym l exec xdotool key Right
+
+  #bindsym j exec xdotool keydown Down keyup Down
+  #bindsym k exec xdotool keydown Up keyup Up
+  #bindsym h exec xdotool keydown Left keyup Left
+  #bindsym l exec xdotool keydown Right keyup Right
+   
+  bindsym --release j exec xdotool key Down
+  bindsym --release k exec xdotool key Up
+  bindsym --release h exec xdotool key Left
+  bindsym --release l exec xdotool key Right
+
+  bindsym i mode "vim-insert"
+  bindsym $mod+n mode "default"
+}
+
+bindsym $mod+i mode "vim-insert"
+mode "vim-insert" {
+  bindsym Escape mode "vim-normal"
+  bindsym $mod+i mode "default"
+}

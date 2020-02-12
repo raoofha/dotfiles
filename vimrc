@@ -738,3 +738,7 @@ let g:formatters_d = ['dfmt']
 "let g:formatters_d = ['uncrustify']
 
 set ghr=0
+
+"change cursor shape
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
