@@ -15,3 +15,10 @@ set vi-cmd-mode-string \1\e[2 q\2
 # switch to block cursor before executing a command
 set keymap vi-insert
 RETURN: "\e\n"
+
+
+# "\e[?1004h": "\e[?25l"
+# "\e[?1004h": "\e[?25h"
+
+# "\e[I": "\e[?25l"
+# "\e[O": "\e[?25h"

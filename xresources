@@ -27,16 +27,14 @@ XTerm.font: xft:DejaVu Sans Mono Nerd Font Complete Mono:antialias=true:pixelsiz
 
 
 ! Molokai theme
-!*background: #101010
-!*background: #000000
+! dark
 xterm*background: #000000
 xterm*foreground: #d0d0d0
-!*foreground: #d0d0d0
-!*foreground: #ffffff
-!*foreground: #727983
-!*foreground: #c8c8c8
-!*cursorColor: #d0d0d0
-!*color0: #101010
+
+! light
+!xterm*background: #ffffff
+!xterm*foreground: #000000
+
 *color0: #000000
 *color1: #960050
 *color2: #66aa11

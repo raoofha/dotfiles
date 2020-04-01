@@ -268,20 +268,40 @@ mode "vim-normal" {
   #bindsym j exec xdotool click 5
   #bindsym k exec xdotool click 4
   
+  #bindsym h exec xdotool key Left
   #bindsym j exec xdotool key Down
   #bindsym k exec xdotool key Up
-  #bindsym h exec xdotool key Left
   #bindsym l exec xdotool key Right
+   
+  #bindsym h exec xdotool keydown Left
+  #bindsym j exec xdotool keydown Down
+  #bindsym k exec xdotool keydown Up
+  #bindsym l exec xdotool keydown Right
 
+  #bindsym --release h exec xdotool keyup Left
+  #bindsym --release j exec xdotool keyup Down
+  #bindsym --release k exec xdotool keyup Up
+  #bindsym --release l exec xdotool keyup Right
+
+  #bindsym h exec xdotool keydown Left keyup Left
   #bindsym j exec xdotool keydown Down keyup Down
   #bindsym k exec xdotool keydown Up keyup Up
-  #bindsym h exec xdotool keydown Left keyup Left
   #bindsym l exec xdotool keydown Right keyup Right
-   
-  bindsym --release j exec xdotool key Down
-  bindsym --release k exec xdotool key Up
-  bindsym --release h exec xdotool key Left
-  bindsym --release l exec xdotool key Right
+
+  #bindsym h exec xte 'key Left'
+  #bindsym j exec xte 'key Down'
+  #bindsym k exec xte 'key Up'
+  #bindsym l exec xte 'key Right'
+
+  #bindsym --release h exec xdotool key Left
+  #bindsym --release j exec xdotool key Down
+  #bindsym --release k exec xdotool key Up
+  #bindsym --release l exec xdotool key Right
+
+  bindsym --release h exec ~/projects/dotfiles/viwm.sh keyup h 
+  bindsym --release j exec ~/projects/dotfiles/viwm.sh keyup j 
+  bindsym --release k exec ~/projects/dotfiles/viwm.sh keyup k 
+  bindsym --release l exec ~/projects/dotfiles/viwm.sh keyup l 
 
   bindsym i mode "vim-insert"
   bindsym $mod+n mode "default"

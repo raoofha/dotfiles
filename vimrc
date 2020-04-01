@@ -675,14 +675,23 @@ let g:formatters_kotlin = ['ktlint']
 
 
 if !has('nvim')
-  noremap  <silent> <F5> :up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' build &') <cr>
-  inoremap <silent> <F5> <esc>:up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' build &') <cr>
-  noremap  <silent> <S-F5> :up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' debug_build &') <cr>
-  inoremap <silent> <S-F5> <esc>:up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' debug_build &') <cr>
-  noremap  <silent> <F6> :up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' engine_build &') <cr>
-  inoremap <silent> <F6> <esc>:up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' engine_build &') <cr>
-  noremap  <silent> <S-F6> :up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' engine_debug_build &') <cr>
-  inoremap <silent> <S-F6> <esc>:up<cr>:silent call system('term-eval bash ' . expand('%:p') . ' engine_debug_build &') <cr>
+  "noremap  <silent> <F5> :up<cr>:silent call system('xterm-send bash ' . expand('%:p') . ' build &') <cr>
+  "inoremap <silent> <F5> <esc>:up<cr>:silent call system('xterm-send bash ' . expand('%:p') . ' build &') <cr>
+  "noremap  <silent> <S-F5> :up<cr>:silent call system('xterm-send bash ' . expand('%:p') . ' debug_build &') <cr>
+  "inoremap <silent> <S-F5> <esc>:up<cr>:silent call system('xterm-send bash ' . expand('%:p') . ' debug_build &') <cr>
+  "noremap  <silent> <F6> :up<cr>:silent call system('xterm-send bash ' . expand('%:p') . ' engine_build &') <cr>
+  "inoremap <silent> <F6> <esc>:up<cr>:silent call system('xterm-send bash ' . expand('%:p') . ' engine_build &') <cr>
+  "noremap  <silent> <S-F6> :up<cr>:silent call system('xterm-send bash ' . expand('%:p') . ' engine_debug_build &') <cr>
+  "inoremap <silent> <S-F6> <esc>:up<cr>:silent call system('xterm-send bash ' . expand('%:p') . ' engine_debug_build &') <cr>
+
+  noremap  <silent> <F5> :up<cr>:silent call system('bash ' . expand('%:p') . ' xterm-send build &') <cr>
+  inoremap <silent> <F5> <esc>:up<cr>:silent call system('bash ' . expand('%:p') . ' xterm-send build &') <cr>
+  noremap  <silent> <S-F5> :up<cr>:silent call system('bash ' . expand('%:p') . ' xterm-send debug_build &') <cr>
+  inoremap <silent> <S-F5> <esc>:up<cr>:silent call system('bash ' . expand('%:p') . ' xterm-send debug_build &') <cr>
+  noremap  <silent> <F6> :up<cr>:silent call system('bash ' . expand('%:p') . ' xterm-send engine_build &') <cr>
+  inoremap <silent> <F6> <esc>:up<cr>:silent call system('bash ' . expand('%:p') . ' xterm-send engine_build &') <cr>
+  noremap  <silent> <S-F6> :up<cr>:silent call system('bash ' . expand('%:p') . ' xterm-send engine_debug_build &') <cr>
+  inoremap <silent> <S-F6> <esc>:up<cr>:silent call system('bash ' . expand('%:p') . ' xterm-send engine_debug_build &') <cr>
 endif
 
 
@@ -732,7 +741,7 @@ set statusline+=\
 
 set rulerformat=%50(%=%f\ %m\ %p%%\ %l:%c%)
 
-let g:formatdef_dfmt = '"dfmt --indent_size 2"'
+let g:formatdef_dfmt = '"dfmt --indent_size 2 --brace_style otbs"'
 let g:formatdef_uncrustify = '"uncrustify -q -l d -c /home/raoof/.uncrustify-d.cfg"'
 let g:formatters_d = ['dfmt']
 "let g:formatters_d = ['uncrustify']
@@ -742,3 +751,8 @@ set ghr=0
 "change cursor shape
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
+
+
+"au FocusGained,BufEnter * :checktime
+"au CursorHold,CursorHoldI * checktime
+"set updatetime=50

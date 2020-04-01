@@ -152,8 +152,11 @@ alias umb4="udisksctl unmount -b /dev/sde1"
 #export PROMPT_COMMAND="history -a; history -n"
 PROMPT_COMMAND="history -a"
 
-alias yt="torify youtube-dl"
+alias yt="http_proxy=socks5://127.0.0.1:9050 youtube-dl"
 
 # do not echo ^C
 stty sane
 stty -echoctl
+
+
+export PATH=$PATH:~/.cabal/bin
