@@ -36,5 +36,5 @@ subcp=enca:__:cp1256
 #slang=jpn,eng,fas
 slang=eng,fas
 
-sub-paths=sub
+sub-paths=sub,/home/raoof/videos/sub
 #osd-fractions=1

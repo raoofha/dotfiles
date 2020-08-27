@@ -138,6 +138,10 @@ bind -m vi-command '"j": "\202\203"'
 
 export GOPATH="/home/raoof/.go"
 export PATH="$GOPATH/bin:$PATH"
+export PATH="~/.cabal/bin:$PATH"
+export PATH="~/.composer/vendor/bin:$PATH"
+export PATH="/opt/php-7.4.6/out/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 
 alias mb="udisksctl mount -b /dev/sdb1"
@@ -158,5 +162,4 @@ alias yt="http_proxy=socks5://127.0.0.1:9050 youtube-dl"
 stty sane
 stty -echoctl
 
-
-export PATH=$PATH:~/.cabal/bin
+alias cp="rsync -ah --progress"
