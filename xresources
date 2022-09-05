@@ -211,3 +211,6 @@ URxvt.keysym.S-F6 : \033[17;2~
 
 
 XTerm.fullscreen: never
+
+XTerm.transparent: true
+XTerm.shading:100

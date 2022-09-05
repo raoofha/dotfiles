@@ -16,8 +16,10 @@ xset b off
 
 export PATH=$PATH:$HOME/.local/bin
 
-xinput --set-prop 9 "Coordinate Transformation Matrix" 2 0 0 0 2 0 0 0 1
+#xinput --set-prop 9 "Coordinate Transformation Matrix" 2 0 0 0 2 0 0 0 1
+xinput --set-prop 9 "Coordinate Transformation Matrix" 1 0 0 0 1 0 0 0 1
 
 exec dbus-launch i3
 #exec ck-launch-session  i3
 
+#exec emacs

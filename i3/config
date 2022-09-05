@@ -48,7 +48,6 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
@@ -73,10 +72,10 @@ bindsym $mod+e layout default
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindcode $mod+d focus child
@@ -186,7 +185,7 @@ bindsym $mod+m mode "mouse"
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5%
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 -- +5%
 bindsym XF86AudioMute exec pactl set-sink-volume 0 0
-bindsym $mod+b exec ~/.bg_random.sh
+bindsym $mod+b exec bg-random
 bindsym $mod+Shift+b exec ~/projects/bin/unsplash.com.sh
 bindsym $mod+F4 exec `xrandr --output VGA1 --auto --pos -1024x800` 
 #bindsym $mod+F5 exec sudo pm-suspend
@@ -211,15 +210,21 @@ workspace_layout tabbed
 #assign [class="(?i)mplayer"] 2
 assign [class="^GoldenDict$"] 4
 
-exec ~/.bg_random.sh
+exec bg-random
 #exec chromium --enable-remote-extensions & goldendict
 #exec chromium-black & goldendict
 #exec chromium & goldendict
 #exec google-chrome & goldendict
-exec chrome & goldendict
+#exec chrome & goldendict
+#exec chrome
 exec dropbox start
 exec setxkbmap -option grp:alt_shift_toggle us,ir && xmodmap -e "keysym Menu = Hyper_L"
-exec lxpanel
+#exec lxpanel
+#exec chromium-black
+exec chrome
+#exec watch -n1200 /home/raoof/Dropbox/sendip.sh 
+exec bash -c "while true; do sleep 1200; /home/raoof/Dropbox/sendip.sh  ; done &" 
+exec picom
 
 #bar {
 # mode hide    	
@@ -267,54 +272,368 @@ for_window [title="Android Emulator - Nexus_5X_API_26:5554"] floating enable
 #for_window [instance="panel"] floating enable
 
 
-bindsym $mod+n mode "vim-normal"
-mode "vim-normal" {
-  #bindsym j exec notify-send hello
-  
-  #bindsym j exec xdotool click 5
-  #bindsym k exec xdotool click 4
-  
-  #bindsym h exec xdotool key Left
-  #bindsym j exec xdotool key Down
-  #bindsym k exec xdotool key Up
-  #bindsym l exec xdotool key Right
-   
-  #bindsym h exec xdotool keydown Left
-  #bindsym j exec xdotool keydown Down
-  #bindsym k exec xdotool keydown Up
-  #bindsym l exec xdotool keydown Right
+#bindsym $mod+n mode "vim-normal"
+#mode "vim-normal" {
+#  #bindsym h exec ~/projects/dotfiles/viwm.sh keydown h 
+#  #bindsym j exec ~/projects/dotfiles/viwm.sh keydown j 
+#  #bindsym k exec ~/projects/dotfiles/viwm.sh keydown k 
+#  #bindsym l exec ~/projects/dotfiles/viwm.sh keydown l 
+#  #bindsym Shift+g exec ~/projects/dotfiles/viwm.sh keydown Shift+g
+#
+#  #bindsym h       exec ~/projects/dotfiles/i3onfocus.py
+#  #bindsym j       exec ~/projects/dotfiles/i3onfocus.py
+#  #bindsym k       exec ~/projects/dotfiles/i3onfocus.py
+#  #bindsym l       exec ~/projects/dotfiles/i3onfocus.py
+#  #bindsym Shift+g exec ~/projects/dotfiles/i3onfocus.py
+#
+#  bindsym h       exec echo
+#  bindsym j       exec echo
+#  bindsym k       exec echo
+#  bindsym l       exec echo
+#  bindsym Shift+g exec echo
+#
+#  bindsym $mod+1 workspace 1
+#  bindsym $mod+2 workspace 2
+#  bindsym $mod+3 workspace 3
+#  bindsym $mod+4 workspace 4
+#  bindsym $mod+5 workspace 5
+#  bindsym $mod+6 workspace 6
+#  bindsym $mod+7 workspace 7
+#  bindsym $mod+8 workspace 8
+#  bindsym $mod+9 workspace 9
+#  bindsym $mod+0 workspace 10
+#
+#  bindsym i mode "vim-insert"
+#  bindsym Escape mode "default"
+#}
+#
+#bindsym $mod+i mode "vim-insert"
+#mode "vim-insert" {
+#  bindsym Escape mode "vim-normal"
+#  bindsym $mod+i mode "default"
+#}
 
-  #bindsym --release h exec xdotool keyup Left
-  #bindsym --release j exec xdotool keyup Down
-  #bindsym --release k exec xdotool keyup Up
-  #bindsym --release l exec xdotool keyup Right
-
-  #bindsym h exec xdotool keydown Left keyup Left
-  #bindsym j exec xdotool keydown Down keyup Down
-  #bindsym k exec xdotool keydown Up keyup Up
-  #bindsym l exec xdotool keydown Right keyup Right
-
-  #bindsym h exec xte 'key Left'
-  #bindsym j exec xte 'key Down'
-  #bindsym k exec xte 'key Up'
-  #bindsym l exec xte 'key Right'
-
-  #bindsym --release h exec xdotool key Left
-  #bindsym --release j exec xdotool key Down
-  #bindsym --release k exec xdotool key Up
-  #bindsym --release l exec xdotool key Right
-
-  bindsym --release h exec ~/projects/dotfiles/viwm.sh keyup h 
-  bindsym --release j exec ~/projects/dotfiles/viwm.sh keyup j 
-  bindsym --release k exec ~/projects/dotfiles/viwm.sh keyup k 
-  bindsym --release l exec ~/projects/dotfiles/viwm.sh keyup l 
-
-  bindsym i mode "vim-insert"
+bindsym $mod+n mode "vim-mode"
+mode "vim-mode" {
   bindsym $mod+n mode "default"
+
+  # start a terminal
+  #bindsym $mod+Return exec i3-sensible-terminal
+  #bindsym $mod+Return exec xterm 
+  #bindsym $mod+Return exec xterm -e "cd `xcwd` && /bin/zsh"
+  bindsym $mod+Return exec xterm -e "cd `xcwd` && /bin/bash"
+  #bindsym $mod+Return exec xcwd | xargs urxvt -cd
+  
+  # kill focused window
+  bindsym $mod+Shift+Q kill
+  
+  # start dmenu (a program launcher)
+  bindsym $mod+d exec dmenu_run
+  #bindsym Shift+colon exec dmenu_run
+  # change focus
+  bindsym $mod+h focus left
+  bindsym $mod+j focus down
+  bindsym $mod+k focus up
+  bindsym $mod+l focus right
+  
+  # alternatively, you can use the cursor keys:
+  bindsym $mod+Left focus left
+  bindsym $mod+Down focus down
+  bindsym $mod+Up focus up
+  bindsym $mod+Right focus right
+  
+  bindsym $mod+Shift+h move left
+  bindsym $mod+Shift+j move down
+  bindsym $mod+Shift+k move up
+  bindsym $mod+Shift+l move right
+  
+  # alternatively, you can use the cursor keys:
+  bindsym $mod+Shift+Left move left
+  bindsym $mod+Shift+Down move down
+  bindsym $mod+Shift+Up move up
+  bindsym $mod+Shift+Right move right
+  
+  # split in horizontal orientation
+  bindsym $mod+c split h
+  
+  # split in vertical orientation
+  bindsym $mod+v split v
+  
+  # enter fullscreen mode for the focused container
+  bindsym $mod+f fullscreen
+  
+  # change container layout (stacked, tabbed, default)
+  bindsym $mod+s layout stacking
+  bindsym $mod+t layout tabbed
+  bindsym $mod+e layout default
+  
+  # toggle tiling / floating
+  bindsym $mod+Shift+space floating toggle
+  
+  # change focus between tiling / floating windows
+  #bindsym $mod+space focus mode_toggle
+  
+  # focus the parent container
+  #bindsym $mod+a focus parent
+  
+  # focus the child container
+  #bindcode $mod+d focus child
+  
+  # switch to workspace
+  bindsym $mod+grave exec sudo chvt 3
+  bindsym $mod+1 workspace 1
+  bindsym $mod+2 workspace 2
+  bindsym $mod+3 workspace 3
+  bindsym $mod+4 workspace 4
+  bindsym $mod+5 workspace 5
+  bindsym $mod+6 workspace 6
+  bindsym $mod+7 workspace 7
+  bindsym $mod+8 workspace 8
+  bindsym $mod+9 workspace 9
+  bindsym $mod+0 workspace 10
+  # Make the currently focused window a scratchpad
+  bindsym $mod+Shift+minus move scratchpad
+  
+  # Show the first scratchpad window
+  bindsym $mod+minus scratchpad show
+  # move focused container to workspace
+  bindsym $mod+Shift+exclam move workspace 1
+  bindsym $mod+Shift+at move workspace 2
+  bindsym $mod+Shift+numbersign move workspace 3
+  bindsym $mod+Shift+dollar move workspace 4
+  bindsym $mod+Shift+percent move workspace 5
+  bindsym $mod+Shift+asciicircum move workspace 6
+  bindsym $mod+Shift+ampersand move workspace 7
+  bindsym $mod+Shift+asterisk move workspace 8
+  bindsym $mod+Shift+parenleft move workspace 9
+  bindsym $mod+Shift+parenright move workspace 10
+  
+  # reload the configuration file
+  bindsym $mod+Shift+C reload
+  # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+  bindsym $mod+Shift+R restart
+  # exit i3 (logs you out of your X session)
+  bindsym $mod+Shift+E exit
+
+  bindsym a       exec echo
+  bindsym b       exec echo
+  bindsym c       exec echo
+  bindsym d       exec echo
+  bindsym e       exec echo
+  bindsym f       exec echo
+  bindsym g       exec echo
+  bindsym h       exec echo
+  bindsym i       exec echo
+  bindsym j       exec echo
+  bindsym k       exec echo
+  bindsym l       exec echo
+  bindsym m       exec echo
+  bindsym n       exec echo
+  bindsym o       exec echo
+  bindsym p       exec echo
+  bindsym q       exec echo
+  bindsym r       exec echo
+  bindsym s       exec echo
+  bindsym t       exec echo
+  bindsym u       exec echo
+  bindsym v       exec echo
+  bindsym w       exec echo
+  bindsym x       exec echo
+  bindsym y       exec echo
+  bindsym z       exec echo
+  bindsym grave        exec echo
+  bindsym 1            exec echo
+  bindsym 2            exec echo
+  bindsym 3            exec echo
+  bindsym 4            exec echo
+  bindsym 5            exec echo
+  bindsym 6            exec echo
+  bindsym 7            exec echo
+  bindsym 8            exec echo
+  bindsym 9            exec echo
+  bindsym 0            exec echo
+  bindsym minus        exec echo
+  bindsym equal        exec echo
+  bindsym bracketleft  exec echo
+  bindsym bracketright exec echo 
+  bindsym backslash    exec echo
+  bindsym semicolon    exec echo
+  bindsym apostrophe   exec echo
+  bindsym comma        exec echo
+  bindsym period       exec echo
+  bindsym slash        exec echo 
+
+  bindsym A exec echo
+  bindsym B exec echo
+  bindsym C exec echo
+  bindsym D exec echo
+  bindsym E exec echo
+  bindsym F exec echo
+  bindsym G exec echo
+  bindsym H exec echo
+  bindsym I exec echo
+  bindsym J exec echo
+  bindsym K exec echo
+  bindsym L exec echo
+  bindsym M exec echo
+  bindsym N exec echo
+  bindsym O exec echo
+  bindsym P exec echo
+  bindsym Q exec echo
+  bindsym R exec echo
+  bindsym S exec echo
+  bindsym T exec echo
+  bindsym U exec echo
+  bindsym V exec echo
+  bindsym W exec echo
+  bindsym X exec echo
+  bindsym Y exec echo
+  bindsym Z exec echo
+  bindsym asciitilde  exec echo
+  bindsym exclam      exec echo
+  bindsym at          exec echo
+  bindsym numbersign  exec echo
+  bindsym dollar      exec echo
+  bindsym percent     exec echo
+  bindsym asciicircum exec echo
+  bindsym ampersand   exec echo
+  bindsym asterisk    exec echo
+  bindsym parenleft   exec echo
+  bindsym parenright  exec echo
+  bindsym underscore  exec echo
+  bindsym plus        exec echo
+  bindsym braceleft   exec echo
+  bindsym braceright  exec echo
+  bindsym bar         exec echo
+  bindsym colon       exec echo
+  bindsym quotedbl    exec echo
+  bindsym less        exec echo
+  bindsym greater     exec echo
+  bindsym question    exec echo
+
+  bindsym Alt+a exec echo
+  bindsym Alt+b exec echo
+  bindsym Alt+c exec echo
+  bindsym Alt+d exec echo
+  bindsym Alt+e exec echo
+  bindsym Alt+f exec echo
+  bindsym Alt+g exec echo
+  bindsym Alt+h exec echo
+  bindsym Alt+i exec echo
+  bindsym Alt+j exec echo
+  bindsym Alt+k exec echo
+  bindsym Alt+l exec echo
+  bindsym Alt+m exec echo
+  bindsym Alt+n exec echo
+  bindsym Alt+o exec echo
+  bindsym Alt+p exec echo
+  bindsym Alt+q exec echo
+  bindsym Alt+r exec echo
+  bindsym Alt+s exec echo
+  bindsym Alt+t exec echo
+  bindsym Alt+u exec echo
+  bindsym Alt+v exec echo
+  bindsym Alt+w exec echo
+  bindsym Alt+x exec echo
+  bindsym Alt+y exec echo
+  bindsym Alt+z exec echo
+
+  bindsym Ctrl+a exec echo
+  bindsym Ctrl+b exec echo
+  bindsym Ctrl+c exec echo
+  bindsym Ctrl+d exec echo
+  bindsym Ctrl+e exec echo
+  bindsym Ctrl+f exec echo
+  bindsym Ctrl+g exec echo
+  bindsym Ctrl+h exec echo
+  bindsym Ctrl+i exec echo
+  bindsym Ctrl+j exec echo
+  bindsym Ctrl+k exec echo
+  bindsym Ctrl+l exec echo
+  bindsym Ctrl+m exec echo
+  bindsym Ctrl+n exec echo
+  bindsym Ctrl+o exec echo
+  bindsym Ctrl+p exec echo
+  bindsym Ctrl+q exec echo
+  bindsym Ctrl+r exec echo
+  bindsym Ctrl+s exec echo
+  bindsym Ctrl+t exec echo
+  bindsym Ctrl+u exec echo
+  bindsym Ctrl+v exec echo
+  bindsym Ctrl+w exec echo
+  bindsym Ctrl+x exec echo
+  bindsym Ctrl+y exec echo
+  bindsym Ctrl+z exec echo
+
+  bindsym Ctrl+A exec echo
+  bindsym Ctrl+B exec echo
+  bindsym Ctrl+C exec echo
+  bindsym Ctrl+D exec echo
+  bindsym Ctrl+E exec echo
+  bindsym Ctrl+F exec echo
+  bindsym Ctrl+G exec echo
+  bindsym Ctrl+H exec echo
+  bindsym Ctrl+I exec echo
+  bindsym Ctrl+J exec echo
+  bindsym Ctrl+K exec echo
+  bindsym Ctrl+L exec echo
+  bindsym Ctrl+M exec echo
+  bindsym Ctrl+N exec echo
+  bindsym Ctrl+O exec echo
+  bindsym Ctrl+P exec echo
+  bindsym Ctrl+Q exec echo
+  bindsym Ctrl+R exec echo
+  bindsym Ctrl+S exec echo
+  bindsym Ctrl+T exec echo
+  bindsym Ctrl+U exec echo
+  bindsym Ctrl+V exec echo
+  bindsym Ctrl+W exec echo
+  bindsym Ctrl+X exec echo
+  bindsym Ctrl+Y exec echo
+  bindsym Ctrl+Z exec echo
+
+  bindsym space       exec echo
+  bindsym BackSpace   exec echo
+  bindsym Home        exec echo
+  bindsym Prior       exec echo
+  bindsym Next        exec echo
+  bindsym End         exec echo
+  bindsym Left        exec echo
+  bindsym Right       exec echo
+  bindsym Up          exec echo
+  bindsym Down        exec echo
+  bindsym Tab         exec echo
+  bindsym Return      exec echo
+  bindsym Escape      exec echo
+  bindsym F1          exec echo
+  bindsym F2          exec echo
+  bindsym F3          exec echo
+  bindsym F4          exec echo
+  bindsym F5          exec echo
+  bindsym F6          exec echo
+  bindsym F7          exec echo
+  bindsym F8          exec echo
+  bindsym F9          exec echo
+  bindsym F10         exec echo
+  bindsym F11         exec echo
+  bindsym F12         exec echo
+  bindsym Scroll_Lock exec echo
+  bindsym Pause       exec echo
+  bindsym Insert      exec echo
+  bindsym Delete      exec echo
 }
 
-bindsym $mod+i mode "vim-insert"
-mode "vim-insert" {
-  bindsym Escape mode "vim-normal"
-  bindsym $mod+i mode "default"
-}
+#bindsym j exec ~/projects/dotfiles/bin/vimode keydown Down
+#bindsym j exec echo
+#bindsym j exec ~/projects/dotfiles/vimode.sh keydown Down
+#bindsym j exec --no-startup-id ~/projects/dotfiles/vimode.sh keydown j
+#bindsym --release j exec --no-startup-id ~/projects/dotfiles/vimode.sh keydown j
+
+for_window [all] title_window_icon on
+
+for_window [class="Magnus"] floating enable
+for_window [class="Magnus"] resize set 320 240
+#for_window [class="Magnus"] resize grow left 200, resize grow right 200, resize grow down 150, resize grow up 100
+
+for_window [class="Vmg"] floating enable
+for_window [class="Vmg"] resize set 320 240

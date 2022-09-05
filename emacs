@@ -80,6 +80,8 @@
     ;elpy
     ;irony
     ;company-irony
+    ;exwm
+    ;exwm-config
     ))
 
 
@@ -239,19 +241,22 @@
  '(ansi-color-names-vector
    ["#000000" "#fb0120" "#a1c659" "#fda331" "#6fb3d2" "#d381c3" "#6fb3d2" "#e0e0e0"])
  '(default-frame-alist
-    (quote
-     ((vertical-scroll-bars)
+    '((vertical-scroll-bars)
       (left-fringe . 0)
-      (right-fringe . 0))))
+      (right-fringe . 0)))
  '(package-selected-packages
-   (quote
-    (xclip tabbar rainbow-delimiters projectile paredit magit jbeans-theme helm haskell-mode flycheck exwm evil-visual-mark-mode elm-mode ein cyberpunk-theme color-theme-sanityinc-tomorrow cider base16-theme))))
+   '(## xclip tabbar rainbow-delimiters projectile paredit magit jbeans-theme helm haskell-mode flycheck exwm evil-visual-mark-mode elm-mode ein cyberpunk-theme color-theme-sanityinc-tomorrow cider base16-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(company-preview ((t (:foreground "darkgray" :underline t))))
+ '(company-preview-common ((t (:inherit company-preview))))
+ '(company-tooltip ((t (:background "lightgray" :foreground "black"))))
+ '(company-tooltip-common ((((type x)) (:inherit company-tooltip :weight bold)) (t (:inherit company-tooltip))))
+ '(company-tooltip-common-selection ((((type x)) (:inherit company-tooltip-selection :weight bold)) (t (:inherit company-tooltip-selection))))
+ '(company-tooltip-selection ((t (:background "steelblue" :foreground "white")))))
 
 (setq cider-cljs-lein-repl
       "(do (require 'figwheel-sidecar.repl-api)
@@ -324,18 +329,4 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;(eval-after-load 'company
 ;  '(add-to-list 'company-backends 'company-irony))
 
-(custom-set-faces
- '(company-preview
-   ((t (:foreground "darkgray" :underline t))))
- '(company-preview-common
-   ((t (:inherit company-preview))))
- '(company-tooltip
-   ((t (:background "lightgray" :foreground "black"))))
- '(company-tooltip-selection
-   ((t (:background "steelblue" :foreground "white"))))
- '(company-tooltip-common
-   ((((type x)) (:inherit company-tooltip :weight bold))
-    (t (:inherit company-tooltip))))
- '(company-tooltip-common-selection
-   ((((type x)) (:inherit company-tooltip-selection :weight bold))
-    (t (:inherit company-tooltip-selection)))))
+;(exwm-config-example)

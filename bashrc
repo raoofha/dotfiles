@@ -142,6 +142,7 @@ export PATH="~/.cabal/bin:$PATH"
 export PATH="~/.composer/vendor/bin:$PATH"
 export PATH="/opt/php-7.4.6/out/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
 
 
 alias mb="udisksctl mount -b /dev/sdb1"
@@ -163,3 +164,6 @@ stty sane
 stty -echoctl
 
 alias cp="rsync -ah --progress"
+alias e="emacs -nw --no-site-file  --no-splash"
+
+export DOTNET_CLI_TELEMETRY_OPTOUT='1'
